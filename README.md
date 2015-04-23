@@ -56,6 +56,13 @@ At this time, `deque` objects support:
 
 
 
+## Notes
+
+Insertion/deletion with the deque is done via pushes/pops.  This is
+very un-parallel safe.  
+
+
+
 ## Installationn
 
 ```r
