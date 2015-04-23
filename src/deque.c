@@ -52,7 +52,11 @@ void deque_push(deque_t *dl, SEXP data)
   l->next = dl->start;
   l->data = data;
   
-  if (dl->start) dl->start->prev = l;
+  if (dl->start) 
+    dl->start->prev = l;
+  else
+    dl->start = l;
+  
   if (!dl->end) dl->end = l;
   dl->start = l;
   dl->len++;
@@ -69,7 +73,11 @@ void deque_pushback(deque_t *dl, SEXP data)
   l->next = NULL;
   l->data = data;
   
-  if (dl->end) dl->end->next = l;
+  if (dl->end) 
+    dl->end->next = l;
+  else
+    dl->end = l;
+  
   if (!dl->start) dl->start = l;
   dl->end = l;
   dl->len++;
@@ -136,7 +144,9 @@ void deque_free(deque_t *dl)
   
   while (l)
   {
-    R_ReleaseObject(l->data);
+    if (l->data != R_NilValue)
+      R_ReleaseObject(l->data);
+    
     vptr = l->next;
     free(l);
     l = vptr;
