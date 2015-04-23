@@ -99,3 +99,27 @@ SEXP R_deque_reverse(SEXP deque_ptr)
   return R_NilValue;
 }
 
+
+
+SEXP R_deque_str(SEXP deque_ptr)
+{
+  deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  list_t *l = dl->start;
+  
+  SEXP basePackage;
+  PROTECT( basePackage = eval( lang2( install("getNamespace"), ScalarString(mkChar("utils")) ), R_GlobalEnv ) );
+  
+  Rprintf("Deque of %d\n", dl->len);
+  
+  for (int i=0; i<dl->len; i++)
+  {
+    Rprintf(" $ :");
+    eval( lang2( install("str"), l->data), basePackage);
+    l = l->next;
+  }
+  
+  UNPROTECT(1);
+  return R_NilValue;
+}
+
+
