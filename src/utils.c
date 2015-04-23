@@ -27,6 +27,8 @@
 
 #include "deque.h"
 
+#define MIN(x,y) (x<y?x:y)
+
 #define PRINT_FEW 1
 #define PRINT_ALL 2
 
@@ -41,16 +43,8 @@ SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel)
   
   if (INTEGER(printlevel)[0] == PRINT_FEW)
   {
-    if (dl->len < TRUNCLEN)
-    {
-      printlen = dl->len;
-      truncated = 0;
-    }
-    else
-    {
-      printlen = TRUNCLEN;
-      truncated = 1;
-    }
+    printlen = MIN(dl->len,TRUNCLEN);
+    truncated = dl->len<TRUNCLEN?0:1;
   }
   else
   {
@@ -121,5 +115,33 @@ SEXP R_deque_str(SEXP deque_ptr)
   UNPROTECT(1);
   return R_NilValue;
 }
+
+
+
+#define HEAD 1
+#define TAIL 2
+
+SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
+{
+  deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  list_t *l;
+  int printlen = MIN(dl->len,INTEGER(n)[0]);
+  const int hot = INTEGER(headsortails)[0];
+  
+  l = hot == HEAD ? dl->start : dl->end;
+  
+  
+  for (int i=0; i<printlen; i++)
+  {
+    Rprintf("[[%d]]\n", i+1);
+    PrintValue(l->data);
+    Rprintf("\n");
+    
+    l = hot == HEAD ? l->next : l->prev;
+  }
+  
+  return R_NilValue;
+}
+
 
 
