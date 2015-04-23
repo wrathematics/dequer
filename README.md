@@ -43,6 +43,19 @@ all.equal(l, l2)
 
 
 
+## Operations
+
+At this time, `deque` objects support:
+
+* `as.list()`
+* `push()`, `pushback()`, `pop()`, and `popback()`
+* `rev()`
+* `length()`
+* `head()` and `tail()`
+* `str()` and special `print()`-ing
+
+
+
 ## Installationn
 
 ```r
