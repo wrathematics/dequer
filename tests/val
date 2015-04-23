@@ -1,0 +1,4 @@
+#!/bin/sh
+
+R --vanilla -d "valgrind --tool=memcheck --leak-check=full" --vanilla < $1
+
