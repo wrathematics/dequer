@@ -8,7 +8,7 @@ very cheap:
 ```r
 library(dequer)
 
-n <- 5e4
+n <- 2e5
 
 ### Growing an R list is expensive
 system.time({
@@ -16,7 +16,7 @@ system.time({
   for (i in 1:n) l[[i]] <- i
 })
 #    user  system elapsed 
-#   7.220   0.000   7.214 
+# 142.463   0.079 142.364 
 
 
 ### Growing a deque is very cheap
@@ -26,7 +26,7 @@ system.time({
   l2 <- as.list(dl)
 })
 #    user  system elapsed 
-#   0.192   0.000   0.192 
+#   0.906   0.008   0.913 
 
 
 all.equal(l, l2)
@@ -38,9 +38,15 @@ all.equal(l, l2)
 ## Known Issues
 
 * The pops currently leak.
-* `gc()` pretty much DDoS's your R session, seemingly from the 
-  `R_ReleaseObject()` calls.  Dunno what the deal is.
-
+* Not so much a bug as a side-effect of using this kind of data
+structure, but it's somewhat unintuitive (and at first I thought it
+was a bug).  So this is worth mentioning.  If you create a deque
+by pushbacks, you need to call `rev(mydeque)` when you're done with
+it.  Otherwise, when R goes to free the object (calling `rm();gc()`
+or exiting R), you will have to wait an inordinate time for R to
+traverse the deque (essentially in the wrong order) and "release"
+the objects to the garbage collector.  The bright side is, `rev()`
+is very cheap.
 
 
 ## Operations

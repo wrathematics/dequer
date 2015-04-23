@@ -1,27 +1,27 @@
 library(dequer)
 
 
-n <- 5e4
+n <- 2e5
 
-cat("-------- push --------\n")
+#cat("-------- push --------\n")
 
-system.time({
-  l <- list()
-  for (i in 1:n) l[[i]] <- n-i+1
-})
-
-
-system.time({
-  dl <- deque()
-  for (i in 1:n) push(dl, i)
-  l2 <- as.list(dl)
-})
-
-all.equal(l, l2)
+#system.time({
+  #l <- list()
+  #for (i in 1:n) l[[i]] <- n-i+1
+#})
 
 
-rm(l, dl, l2)
-invisible(gc())
+#system.time({
+  #dl <- deque()
+  #for (i in 1:n) push(dl, i)
+  #l2 <- as.list(dl)
+#})
+
+#all.equal(l, l2)
+
+
+#rm(l, dl, l2)
+#invisible(gc())
 
 
 
@@ -41,3 +41,4 @@ system.time({
 
 all.equal(l, l2)
 
+rev(dl)
