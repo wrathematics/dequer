@@ -46,7 +46,8 @@ of the loop, R will:
 5. Mark the old storage for deletion by the garbage collector.
 
 All of these unnecessary memory operations are very expensive.
-Using a deque (or preallocating the list, if possible) is preferable.
+Using a deque (or preallocating the list, if possible) will have
+much better performance.
 
 
 
@@ -116,7 +117,7 @@ For an object that is inherently meant to be temporary, like the
 deque, this is needlessly costly.  Instead, we would call:
 
 ```r
-rev(d) ### d is a deque object
+rev(d) ### d is a deque
 ```
 
 In this case, `rev()` will return `NULL`, but the object is still
@@ -164,8 +165,8 @@ deque operations that don't have side-effects are:
 
 ## Notes and Known Issues
 
-* Insertion/deletion with the deque is done via pushes/pops.  This is
-very un-parallel safe.
+* It should go without saying that the functions with side-effects
+are very un-parallel safe.
 
 * Not so much a bug as a side-effect of using this kind of data
 structure, but it's somewhat unintuitive (and at first I thought it
