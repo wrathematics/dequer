@@ -101,3 +101,35 @@ SEXP R_deque_popback(SEXP deque_ptr)
 
 
 
+SEXP R_deque_split(SEXP deque_ptr, SEXP k)
+{
+  SEXP ret;
+  deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  deque_t *dl2;
+  
+  int check = deque_split(INTEGER(k)[0], dl, &dl2);
+  if (check)
+    error("something went wrong!");
+  
+  newRptr(dl2, ret, deque_finalize);
+  
+  UNPROTECT(1);
+  return ret;
+}
+
+
+
+SEXP R_deque_combine(SEXP deque_ptr1, SEXP deque_ptr2)
+{
+  deque_t *dl1 = (deque_t *) getRptr(deque_ptr1);
+  deque_t *dl2 = (deque_t *) getRptr(deque_ptr2);
+  
+  deque_combine(dl1, dl2);
+  
+  free(dl2);
+  R_ClearExternalPtr(deque_ptr2);
+  
+  return R_NilValue;
+}
+
+

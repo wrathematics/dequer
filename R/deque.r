@@ -100,9 +100,51 @@ as.list.deque <- function(deque)
 
 
 #' @export
+combine <- function(dl1, dl2)
+{
+  .Call("R_deque_combine", dl1, dl2)
+  invisible()
+}
+
+
+
+#' @export
+sep <- function(dl, k)
+{
+  k <- as.integer(k)
+  
+  if (k > length(dl))
+    stop("")
+  if (k < 0)
+    stop("")
+  
+  ret <- .Call("R_deque_split", dl, k)
+  class(ret) <- "deque"
+  
+  ret
+}
+
+
+
+#' @export
+#"[[".deque <- function(deque, index)
+#{
+#  index <- unique(sort(index))
+#  if (length(index) < length(deque))
+#    warning("")
+#  else if (length(index) > length(deque))
+#    stop("too many indices")
+#  
+#  .Call("R_deque_to_Rlist", deque)
+#}
+
+
+
+#' @export
 str.deque <- function(object)
 {
   .Call("R_deque_str", object)
+  invisible()
 }
 
 
