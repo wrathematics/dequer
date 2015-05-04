@@ -173,7 +173,7 @@ int deque_split(const uint32_t k, deque_t *dl, deque_t **dl2)
   else
   {
     l = dl->end;
-    for (i=dl->len; i>k; i--)
+    for (i=dl->len; i>k+1; i--)
       l = l->prev;
   }
   
