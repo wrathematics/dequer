@@ -43,6 +43,7 @@ deque_t *deque_create()
 }
 
 
+
 void deque_push(deque_t *dl, SEXP data)
 {
   list_t *l;
@@ -90,9 +91,17 @@ void deque_pop(deque_t *dl)
   if (dl->len == 0) return;
   
   list_t *l = dl->start;
-  if (l->next) l->next->prev = NULL;
+  if (l->next)
+  {
+    vptr = l;
+    l = l->next;
+    l->prev = NULL;
+    
+    l = vptr;
+  }
   
   dl->start = l->next;
+  if (dl->len == 1) dl->end = NULL;
   dl->len--;
   
   R_ReleaseObject(l->data);
@@ -107,8 +116,17 @@ void deque_popback(deque_t *dl)
   
   list_t *l = dl->end;
   
-  if (l->prev) l->prev->next = NULL;
+  if (l->prev)
+  {
+    vptr = l;
+    l = l->prev;
+    l->next = NULL;
+    
+    l = vptr;
+  }
+  
   dl->end = l->prev;
+  if (dl->len == 1) dl->start = NULL;
   dl->len--;
   
   R_ReleaseObject(l->data);
@@ -134,6 +152,63 @@ void deque_reverse(deque_t *dl)
     
     l = vptr;
   }
+}
+
+
+
+// split dl after k
+int deque_split(const uint32_t k, deque_t *dl, deque_t **dl2)
+{
+  if (dl->len < k) return -1;
+  int i;
+  *dl2 = deque_create();
+  list_t *l;
+  
+  if (k <= dl->len/2)
+  {
+    l = dl->start;
+    for (i=0; i<k; i++)
+      l = l->next;
+  }
+  else
+  {
+    l = dl->end;
+    for (i=dl->len; i>k; i--)
+      l = l->prev;
+  }
+  
+  (*dl2)->len = dl->len - k;
+  
+  dl->end = l->prev;
+  dl->len = k;
+  
+  l->prev = NULL;
+  (*dl2)->start = l;
+  (*dl2)->end = dl->end;
+  
+  
+  l = dl->end;
+  l->next = NULL;
+  
+  return 0;
+}
+
+
+
+// this is very unsafe if you do dumb shit
+int deque_combine(deque_t *dl, deque_t *dl2)
+{
+  list_t *l;
+  l = dl->end;
+  
+  l->next = dl2->start;
+  dl2->start->prev = l;
+  
+  dl->end = dl2->end;
+  
+  dl->len += dl2->len;
+  
+  return 0;
 }
 
 
