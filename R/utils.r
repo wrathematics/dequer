@@ -1,3 +1,25 @@
+#' Printing Deques
+#' 
+#' @details
+#' If \code{output=="summary"}, then just a simple representation of the n-gram
+#' object will be printed.
+#' 
+#' If \code{output=="truncated"}, then the first 5 items will be
+#' printed.
+#' 
+#' If \code{output=="full"} then the full list will be printed.
+#' 
+#' @param x
+#' A deque.
+#' @param output
+#' A character string; determines what exactly is printed.
+#' Options are "summary", "truncated", and "full".
+#' @param ...
+#' Unused.
+#' 
+#' @name print-deque
+#' @rdname print-deque
+#' @method print deque
 #' @export
 print.deque <- function(x, ..., output="summary")
 {
@@ -27,6 +49,26 @@ length.deque <- function(x)
 
 
 
+#' rev
+#' 
+#' @details
+#' Operates via side-effects; see examples for clarification on usage.
+#' 
+#' @param x
+#' A deque.
+#' 
+#' @examples
+#' library(dequer)
+#' d <- deque()
+#' for (i in 1:5) push(d, i)
+#' 
+#' print(d, output="full")
+#' rev(d)
+#' print(d, output="full")
+#' 
+#' @name rev-deque
+#' @rdname rev-deque
+#' @method rev deque
 #' @export
 rev.deque <- function(x)
 {
@@ -37,31 +79,9 @@ rev.deque <- function(x)
 
 
 #' @export
-str.deque <- function(object)
+str.deque <- function(object, ...)
 {
   .Call("R_deque_str", object)
-  invisible()
-}
-
-
-
-#' @export
-head.deque <- function(x, n=6, ...)
-{
-  n <- as.integer(n)
-  
-  .Call("R_deque_headsortails", x, n, 1L)
-  invisible()
-}
-
-
-
-#' @export
-tail.deque <- function(x, n=6, ...)
-{
-  n <- as.integer(n)
-  
-  .Call("R_deque_headsortails", x, n, 2L)
   invisible()
 }
 
