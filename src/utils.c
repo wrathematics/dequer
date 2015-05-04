@@ -41,6 +41,12 @@ SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel)
   
   int printlen, truncated;
   
+  if (dl->len == 0)
+  {
+    Rprintf("deque()\n");
+    return R_NilValue;
+  }
+  
   if (INTEGER(printlevel)[0] == PRINT_FEW)
   {
     printlen = MIN(dl->len,TRUNCLEN);
@@ -100,6 +106,12 @@ SEXP R_deque_str(SEXP deque_ptr)
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   list_t *l = dl->start;
   
+  if (dl->len == 0)
+  {
+    Rprintf(" deque()\n");
+    return R_NilValue;
+  }
+  
   SEXP basePackage;
   PROTECT( basePackage = eval( lang2( install("getNamespace"), ScalarString(mkChar("utils")) ), R_GlobalEnv ) );
   
@@ -125,6 +137,14 @@ SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   list_t *l;
+  
+  if (dl->len == 0)
+  {
+    Rprintf("deque()\n");
+    return R_NilValue;
+  }
+  
+  
   int printlen = MIN(dl->len,INTEGER(n)[0]);
   const int hot = INTEGER(headsortails)[0];
   
@@ -142,6 +162,4 @@ SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
   
   return R_NilValue;
 }
-
-
 
