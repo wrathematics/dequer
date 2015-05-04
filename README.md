@@ -37,16 +37,18 @@ all.equal(l, l2)
 
 ## Known Issues
 
-* The pops currently leak.
 * Not so much a bug as a side-effect of using this kind of data
 structure, but it's somewhat unintuitive (and at first I thought it
 was a bug).  So this is worth mentioning.  If you create a deque
 by pushbacks, you need to call `rev(mydeque)` when you're done with
 it.  Otherwise, when R goes to free the object (calling `rm();gc()`
 or exiting R), you will have to wait an inordinate time for R to
-traverse the deque (essentially in the wrong order) and "release"
-the objects to the garbage collector.  The bright side is, `rev()`
-is very cheap.
+traverse the deque and free the R objects (essentially in the wrong
+order).  The basic reason is that the preserve/release of R objects
+[is implemented as a stack](http://lists.r-forge.r-project.org/pipermail/rcpp-devel/2010-January/000180.html),
+and so if you do this in the wrong order, performance tanks.
+The bright side is, `rev()` is very cheap.
+
 
 
 ## Operations
@@ -59,6 +61,7 @@ At this time, `deque` objects support:
 * `length()`
 * `head()` and `tail()`
 * `str()` and special `print()`-ing
+* `combine()` and `split()`
 
 
 
