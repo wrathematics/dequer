@@ -27,8 +27,6 @@
 
 #include "deque.h"
 
-static void *vptr;
-
 
 deque_t *deque_create()
 {
@@ -88,16 +86,18 @@ void deque_pushback(deque_t *dl, SEXP data)
 
 void deque_pop(deque_t *dl)
 {
+  list_t *tmp;
+  
   if (dl->len == 0) return;
   
   list_t *l = dl->start;
   if (l->next)
   {
-    vptr = l;
+    tmp = l;
     l = l->next;
     l->prev = NULL;
     
-    l = vptr;
+    l = tmp;
   }
   
   dl->start = l->next;
@@ -112,17 +112,19 @@ void deque_pop(deque_t *dl)
 
 void deque_popback(deque_t *dl)
 {
+  list_t *tmp;
+  
   if (dl->len == 0) return;
   
   list_t *l = dl->end;
   
   if (l->prev)
   {
-    vptr = l;
+    tmp = l;
     l = l->prev;
     l->next = NULL;
     
-    l = vptr;
+    l = tmp;
   }
   
   dl->end = l->prev;
@@ -137,6 +139,7 @@ void deque_popback(deque_t *dl)
 
 void deque_reverse(deque_t *dl)
 {
+  list_t *tmp;
   const uint32_t len = dl->len;
   list_t *l;
   
@@ -146,11 +149,11 @@ void deque_reverse(deque_t *dl)
   
   for (int i=0; i<len; i++)
   {
-    vptr = l->next;
+    tmp = l->next;
     l->next = l->prev;
-    l->prev = vptr;
+    l->prev = tmp;
     
-    l = vptr;
+    l = tmp;
   }
 }
 
@@ -215,6 +218,7 @@ int deque_combine(deque_t *dl, deque_t *dl2)
 
 void deque_free(deque_t *dl)
 {
+  list_t *tmp;
   list_t *l = dl->start;
   
   while (l)
@@ -222,9 +226,9 @@ void deque_free(deque_t *dl)
     if (l->data != R_NilValue)
       R_ReleaseObject(l->data);
     
-    vptr = l->next;
+    tmp = l->next;
     free(l);
-    l = vptr;
+    l = tmp;
   }
   
   free(dl);
