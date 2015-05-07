@@ -39,6 +39,8 @@ deque <- function()
 #' @export
 push <- function(x, data)
 {
+  if (class(x) != "deque") stop("'x' must be a deque.")
+  
   .Call("R_deque_push", x, data)
   invisible()
 }
@@ -67,6 +69,8 @@ push <- function(x, data)
 #' @export
 pushback <- function(x, data)
 {
+  if (class(x) != "deque") stop("'x' must be a deque.")
+  
   .Call("R_deque_pushback", x, data)
   invisible()
 }
@@ -94,6 +98,8 @@ pushback <- function(x, data)
 #' @export
 pop <- function(x)
 {
+  if (class(x) != "deque") stop("'x' must be a deque.")
+  
   .Call("R_deque_pop", x)
   invisible()
 }
@@ -121,6 +127,8 @@ pop <- function(x)
 #' @export
 popback <- function(x)
 {
+  if (class(x) != "deque") stop("'x' must be a deque.")
+  
   .Call("R_deque_popback", x)
   invisible()
 }
@@ -157,14 +165,14 @@ popback <- function(x)
 #' @export
 sep <- function(x, k)
 {
-  k <- as.integer(k)
+  if (class(x) != "deque") stop("'x' must be a deque.")
+  if (!is.numeric(k) || abs(k-round(k)) > 1e-8 || k < 1)
+    stop("'k' must be a positive integer")
   
   if (k > length(x))
     stop("")
-  if (k < 0)
-    stop("")
   
-  ret <- .Call("R_deque_split", x, k)
+  ret <- .Call("R_deque_split", x, as.integer(k))
   class(ret) <- "deque"
   
   ret
@@ -202,6 +210,9 @@ sep <- function(x, k)
 #' @export
 combine <- function(x1, x2)
 {
+  if (class(x1) != "deque") stop("'x1' must be a deque.")
+  if (class(x2) != "deque") stop("'x2' must be a deque.")
+  
   .Call("R_deque_combine", x1, x2)
   invisible()
 }
