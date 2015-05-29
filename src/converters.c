@@ -55,3 +55,36 @@ SEXP R_deque_to_Rlist(SEXP deque_ptr)
   return Rlist;
 }
 
+
+
+#if 0
+SEXP R_deque_to_subRlist(SEXP deque_ptr, SEXP indices)
+{
+  deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  const int len = dl->len;
+  const int indlen = LENGTH(indices);
+  
+  list_t *l = dl->start;
+  
+  SEXP Rlist;
+  PROTECT(Rlist = allocVector(VECSXP, len));
+  
+  while (l)
+  {
+    
+    append_item_to_Rlist(Rlist, i, l->data);
+    
+    l = l->next;
+  }
+  
+  for (int i=0; i<len; i++)
+  {
+    append_item_to_Rlist(Rlist, i, l->data);
+    l = l->next;
+  }
+  
+  UNPROTECT(1);
+  return Rlist;
+}
+
+#endif
