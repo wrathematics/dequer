@@ -5,10 +5,11 @@ Version: 1.0
 Description: This package offers special data structure called a 'deque'
     (pronounced like 'deck'), which is a list-like structure.  However,
     unlike R's list structure, data put into a 'deque' is not necessarily
-    stored continuously, making insertions and deletions very fast.  The 
-    implementation here is new and uses a doubly linked list, and whence
-    does not rely on R's environments.  To avoid unnecessary data copying,
-    most 'deque' operations are not safe to use with parallel operations.
+    stored contiguously, making insertions and deletions at the front/end
+    of the structure much faster.  The implementation here is new and 
+    uses a doubly linked list, and whence does not rely on R's
+    environments.  To avoid unnecessary data copying, most 'deque'
+    operations have side-effects.
 License: BSD 2-clause License + file LICENSE
 Depends: R (>= 2.14.0)
 Imports: utils
