@@ -13,3 +13,9 @@ pushback(dl, 3)
 pop(dl)
 popback(dl)
 
+l2 <- as.list(dl)
+
+l1 <- list(1)
+stopifnot(all.equal(l1, l2))
+
+invisible({rm(l2);gc()})
