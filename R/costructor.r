@@ -17,6 +17,7 @@ deque <- function()
 }
 
 
+
 #' push
 #' 
 #' Add items to the front of a deque.

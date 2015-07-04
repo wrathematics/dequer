@@ -2,7 +2,8 @@
 #' 
 #' A deque (pronounced like "deck") is a "double ended queue".  This
 #' behaves somewhat like a list in R; but unlike an R list (which is
-#' a contiguous array of pointers), the memory isn't contiguous.
+#' a contiguous array of pointers), the memory of a deque isn't
+#' necessarily contiguous.
 #' 
 #' @useDynLib dequer
 #' 
