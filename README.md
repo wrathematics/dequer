@@ -1,6 +1,6 @@
-# dequer [![Build Status](https://travis-ci.org/wrathematics/dequer.png)](https://travis-ci.org/wrathematics/dequer) [![License](http://img.shields.io/badge/license-BSD%202--Clause-orange.svg?style=flat)](http://opensource.org/licenses/BSD-2-Clause)
+# dequer
 
-* **Version:** 2.0
+* **Version:** 1.0
 * **Status:** [![Build Status](https://travis-ci.org/wrathematics/dequer.png)](https://travis-ci.org/wrathematics/dequer) 
 * **License:** [![License](http://img.shields.io/badge/license-BSD%202--Clause-orange.svg?style=flat)](http://opensource.org/licenses/BSD-2-Clause)
 * **Author:** Drew Schmidt
