@@ -1,4 +1,4 @@
-# dequer
+# dequer 
 
 * **Version:** 1.0
 * **Status:** [![Build Status](https://travis-ci.org/wrathematics/dequer.png)](https://travis-ci.org/wrathematics/dequer) 
