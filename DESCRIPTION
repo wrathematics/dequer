@@ -1,7 +1,7 @@
 Package: dequer
 Type: Package
 Title: An R Deque Container
-Version: 2.0
+Version: 1.0
 Description: This package offers a deque, which is a list-like
       structure for fast insertion/deletion.
 License: BSD 2-clause License + file LICENSE
