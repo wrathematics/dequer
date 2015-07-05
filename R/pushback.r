@@ -22,7 +22,7 @@
 #' @export
 pushback <- function(x, data) UseMethod("pushback")
 
-pusherback <- function(x)
+pusherback <- function(x, data)
 {
   .Call("R_deque_pushback", x, data)
   invisible()
