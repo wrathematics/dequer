@@ -189,7 +189,15 @@ The bright side is, `rev()` is very cheap.
 
 
 
-## Installationn
+## Installation
+
+dequer is available from the CRAN:
+
+```r
+install.packages("dequer")
+```
+
+As well as GitHub:
 
 ```r
 devtools::install_github("wrathematics/dequer")
