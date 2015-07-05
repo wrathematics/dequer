@@ -1,14 +1,14 @@
 #' push
 #' 
-#' Add items to the front of a deque.
+#' Add items to the front of a deque or a stack.
 #' 
 #' @details
 #' Operates via side-effects; see examples for clarification on usage.
 #' 
 #' @param x
-#' A deque.
+#' A deque or a stack.
 #' @param data
-#' R object to insert into the deque.
+#' R object to insert at the front of the deque/stack.
 #' 
 #' @examples
 #' library(dequer)
@@ -17,11 +17,21 @@
 #' push(d, 2)
 #' print(d, output="full")
 #' 
+#' @name push
+#' @rdname push
 #' @export
-push <- function(x, data)
+push <- function(x, data) UseMethod("push")
+
+pusher <- function(x, data)
 {
-  if (class(x) != "deque") stop("'x' must be a deque.")
-  
   .Call("R_deque_push", x, data)
   invisible()
 }
+
+#' @rdname push
+#' @export
+push.deque <- pusher
+
+#' @rdname push
+#' @export
+push.stack <- pusher

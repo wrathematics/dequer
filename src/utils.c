@@ -101,7 +101,7 @@ SEXP R_deque_reverse(SEXP deque_ptr)
 
 
 
-SEXP R_deque_str(SEXP deque_ptr)
+SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   list_t *l = dl->start;
@@ -115,7 +115,7 @@ SEXP R_deque_str(SEXP deque_ptr)
   SEXP basePackage;
   PROTECT( basePackage = eval( lang2( install("getNamespace"), ScalarString(mkChar("utils")) ), R_GlobalEnv ) );
   
-  Rprintf("Deque of %d\n", dl->len);
+  Rprintf("%s of %d\n", CHARPT(obj_type, 0), dl->len);
   
   for (int i=0; i<dl->len; i++)
   {

@@ -2,6 +2,9 @@
 #' 
 #' An initializer for a deque.
 #' 
+#' A deque is a double-ended queue.  Insertion and deletion of
+#' objects can happen at either end.
+#' 
 #' @examples
 #' library(dequer)
 #' d <- deque()

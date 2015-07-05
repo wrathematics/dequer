@@ -1,2 +1,5 @@
+Release 1.1:
+  * Added queues and stacks.
+
 Release 1.0:
   * Support for deques and basic deque operations.

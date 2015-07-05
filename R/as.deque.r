@@ -40,3 +40,14 @@ as.deque.default <- function(x)
   return(d)
 }
 
+#' @export
+#' @rdname as.deque
+as.deque.queue <- function(x)
+{
+  class(x) <- "deque"
+  return(x)
+}
+
+#' @export
+#' @rdname as.deque
+as.deque.stack <- as.deque.queue

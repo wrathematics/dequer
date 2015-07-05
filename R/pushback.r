@@ -1,14 +1,14 @@
 #' pushback
 #' 
-#' Add items to the back of a deque.
+#' Add items to the back of a deque or a queue.
 #' 
 #' @details
 #' Operates via side-effects; see examples for clarification on usage.
 #' 
 #' @param x
-#' A deque.
+#' A deque or a queue.
 #' @param data
-#' R object to insert into the deque.
+#' R object to insert at the back of a deque/queue.
 #' 
 #' @examples
 #' library(dequer)
@@ -17,11 +17,22 @@
 #' pushback(d, 2)
 #' print(d, output="full")
 #' 
+#' @name pushback
+#' @rdname pushback
 #' @export
-pushback <- function(x, data)
+pushback <- function(x, data) UseMethod("pushback")
+
+pusherback <- function(x)
 {
-  if (class(x) != "deque") stop("'x' must be a deque.")
-  
   .Call("R_deque_pushback", x, data)
   invisible()
 }
+
+#' @rdname pushback
+#' @export
+pushback.deque <- pusherback
+
+#' @rdname pop
+#' @export
+pushback.queue <- pusherback
+
