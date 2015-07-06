@@ -12,7 +12,9 @@ Pronounced "decker".
 A deque (pronounced like "deck") is a "double ended queue".  This
 behaves somewhat like a list in R; but unlike an R list (which is
 a contiguous array of pointers), the memory isn't contiguous.
-This makes insertions very cheap:
+This makes insertions of new data very cheap.
+
+Consider the following example:
 
 ```r
 library(dequer)
@@ -42,6 +44,13 @@ all.equal(l, l2)
 # [1] TRUE
 ```
 
+In reality, we could just preallocate our array because we know
+how many elements the final object should have.  And if you *do*
+know how many elements the final object should have, that is
+exactly what you should do.  But for the cases where we don't,
+this example shows why it's a better strategy to use something
+like a deque (or a stack or a queue).
+
 The reason the list version is so slow is because at each iteration
 of the loop, R will:
 
@@ -52,8 +61,8 @@ of the loop, R will:
 5. Mark the old storage for deletion by the garbage collector.
 
 All of these unnecessary memory operations are very expensive.
-Using a deque (or preallocating the list, if possible) will have
-much better performance.
+Using a deque (or as noted above, preallocating the list, if at
+all possible possible) will have much better performance.
 
 
 
