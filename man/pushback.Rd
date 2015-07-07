@@ -10,7 +10,7 @@
 
 pushback(x, data)
 
-\method{pushback}{deque}(x)
+\method{pushback}{deque}(x, data)
 }
 \arguments{
 \item{x}{A deque or a queue.}

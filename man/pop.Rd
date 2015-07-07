@@ -16,7 +16,7 @@ pop(x, data)
 
 \method{popback}{queue}(x)
 
-\method{pushback}{queue}(x)
+\method{pushback}{queue}(x, data)
 }
 \arguments{
 \item{x}{A deque or a stack.}
