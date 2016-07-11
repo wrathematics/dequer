@@ -62,7 +62,7 @@ of the loop, R will:
 
 All of these unnecessary memory operations are very expensive.
 Using a deque (or as noted above, preallocating the list, if at
-all possible possible) will have much better performance.
+all possible) will have much better performance.
 
 
 
