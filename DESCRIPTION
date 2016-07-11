@@ -1,21 +1,24 @@
 Package: dequer
 Type: Package
 Title: An R 'Deque' Container
-Version: 1.0
+Version: 1.1
 Description: Offers a special data structure called a 'deque'
     (pronounced like 'deck'), which is a list-like structure.  However,
     unlike R's list structure, data put into a 'deque' is not necessarily
     stored contiguously, making insertions and deletions at the front/end
-    of the structure much faster.  The implementation here is new and 
+    of the structure much faster.  The implementation here is new and
     uses a doubly linked list, and whence does not rely on R's
     environments.  To avoid unnecessary data copying, most 'deque'
     operations are performed via side-effects.
 License: BSD 2-clause License + file LICENSE
-Depends: R (>= 3.1.0)
-Imports: utils
+Depends:
+    R (>= 3.1.0)
+Imports:
+    utils
 NeedsCompilation: yes
 ByteCompile: yes
 Author: Drew Schmidt [aut, cre]
 URL: https://github.com/wrathematics/dequer
 BugReports: https://github.com/wrathematics/dequer/issues
 Maintainer: Drew Schmidt <wrathematics@gmail.com>
+RoxygenNote: 5.0.1

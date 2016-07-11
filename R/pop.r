@@ -19,7 +19,7 @@
 #' @name pop
 #' @rdname pop
 #' @export
-pop <- function(x, data) UseMethod("pop")
+pop <- function(x) UseMethod("pop")
 
 popper <- function(x)
 {

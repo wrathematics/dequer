@@ -19,7 +19,7 @@
 #' @name popback
 #' @rdname popback
 #' @export
-popback <- function(x, data) UseMethod("popback")
+popback <- function(x) UseMethod("popback")
 
 popperback <- function(x)
 {
@@ -27,12 +27,10 @@ popperback <- function(x)
   invisible()
 }
 
-#' @rdname pushback
+#' @rdname popback
 #' @export
 popback.deque <- popperback
 
-#' @rdname pop
+#' @rdname popback
 #' @export
 popback.queue <- popperback
-
-

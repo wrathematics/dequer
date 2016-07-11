@@ -32,7 +32,6 @@ pusherback <- function(x, data)
 #' @export
 pushback.deque <- pusherback
 
-#' @rdname pop
+#' @rdname pushback
 #' @export
 pushback.queue <- pusherback
-
