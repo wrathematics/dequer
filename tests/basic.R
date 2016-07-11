@@ -1,4 +1,4 @@
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 d <- deque()
 push(d, 1234)
@@ -11,4 +11,3 @@ l1 <- list(897, 1234, "asdf")
 l2 <- as.list(d)
 
 stopifnot(all.equal(l1, l2))
-

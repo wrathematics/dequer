@@ -1,5 +1,4 @@
-### Checking for memory leaks
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 dl <- deque()
 

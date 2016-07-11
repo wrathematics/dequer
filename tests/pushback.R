@@ -1,4 +1,4 @@
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 n <- 1e4
 

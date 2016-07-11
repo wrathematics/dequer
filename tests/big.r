@@ -1,5 +1,5 @@
 ### Checking for memory leaks
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 n <- 1e5
 
@@ -15,4 +15,3 @@ stopifnot(all.equal(l1, l2))
 
 rm(dl, l2)
 invisible(gc())
-

@@ -1,4 +1,4 @@
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 f <- function(n, k)
 {

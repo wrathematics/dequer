@@ -1,4 +1,4 @@
-library(dequer)
+suppressPackageStartupMessages(library(dequer))
 
 n <- 100
 
@@ -12,4 +12,3 @@ dl.rev <- rev(dl)
 l.rev <- rev(l)
 
 stopifnot(all.equal(l.rev, as.list(dl)))
-
