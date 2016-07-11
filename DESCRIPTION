@@ -1,7 +1,7 @@
 Package: dequer
 Type: Package
 Title: An R 'Deque' Container
-Version: 1.1
+Version: 1.1-0
 Description: Offers a special data structure called a 'deque'
     (pronounced like 'deck'), which is a list-like structure.  However,
     unlike R's list structure, data put into a 'deque' is not necessarily
