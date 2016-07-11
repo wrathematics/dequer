@@ -20,7 +20,7 @@ peekbacker <- function(x, n) headtail(x, n=1L, TAILS)
 #' or \code{peekback()}, respectively. Similar to \code{head()} and \code{tail()}.
 #' 
 #' @description
-#' These methods are parallel safe.
+#' These methods are side-effect free.
 #' 
 #' @param x
 #' A deque or a stack.
