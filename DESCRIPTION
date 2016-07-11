@@ -1,9 +1,9 @@
 Package: dequer
 Type: Package
-Title: An R 'Deque' Container
+Title: A 'Deque' Container for R
 Version: 1.1-0
-Description: Offers a special data structure called a 'deque'
-    (pronounced like 'deck'), which is a list-like structure.  However,
+Description: A 'deque' is a list or vector-like data structure.  These are
+    meant to be very cheap to insert new objects intoHowever,
     unlike R's list structure, data put into a 'deque' is not necessarily
     stored contiguously, making insertions and deletions at the front/end
     of the structure much faster.  The implementation here is new and
@@ -13,8 +13,6 @@ Description: Offers a special data structure called a 'deque'
 License: BSD 2-clause License + file LICENSE
 Depends:
     R (>= 3.1.0)
-Imports:
-    utils
 NeedsCompilation: yes
 ByteCompile: yes
 Author: Drew Schmidt [aut, cre]
