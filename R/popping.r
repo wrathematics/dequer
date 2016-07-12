@@ -31,6 +31,8 @@
 #' @rdname popping
 NULL
 
+
+
 #' @rdname popping
 #' @export
 pop <- function(x) UseMethod("pop")
@@ -55,4 +57,4 @@ popback.deque <- function(x) invisible(.Call(R_deque_popback, x))
 
 #' @rdname popping
 #' @export
-popback.queue <- function(x) invisible(.Call(R_deque_popback, x))
+popback.queue <- function(x) invisible(.Call(R_deque_pop, x))

@@ -10,7 +10,10 @@ as.list.deque <- function(x, ...)
 as.list.queue <- function(x, ...)
 {
   rev(x)
-  .Call(R_deque_to_Rlist, x)
+  ret <- .Call(R_deque_to_Rlist, x)
+  rev(x)
+  
+  ret
 }
 
 

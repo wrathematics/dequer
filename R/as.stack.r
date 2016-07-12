@@ -20,6 +20,8 @@
 #' @rdname as.stack
 as.stack <- function(x) UseMethod("as.stack")
 
+
+
 #' @export
 #' @rdname as.stack
 as.stack.list <- function(x)
@@ -32,6 +34,8 @@ as.stack.list <- function(x)
   return(s)
 }
 
+
+
 #' @export
 #' @rdname as.stack
 as.stack.default <- function(x)
@@ -42,6 +46,8 @@ as.stack.default <- function(x)
   return(s)
 }
 
+
+
 #' @export
 #' @rdname as.stack
 as.stack.deque <- function(x)
@@ -49,6 +55,8 @@ as.stack.deque <- function(x)
   class(x) <- "stack"
   return(x)
 }
+
+
 
 #' @export
 #' @rdname as.stack

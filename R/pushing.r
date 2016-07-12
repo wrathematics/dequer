@@ -30,6 +30,8 @@
 #' @rdname pushing
 NULL
 
+
+
 #' @rdname pushing
 #' @export
 push <- function(x, data) UseMethod("push")

@@ -20,6 +20,8 @@
 #' @rdname as.deque
 as.deque <- function(x) UseMethod("as.deque")
 
+
+
 #' @export
 #' @rdname as.deque
 as.deque.list <- function(x)
@@ -34,6 +36,8 @@ as.deque.list <- function(x)
   return(d)
 }
 
+
+
 #' @export
 #' @rdname as.deque
 as.deque.default <- function(x)
@@ -44,6 +48,8 @@ as.deque.default <- function(x)
   return(d)
 }
 
+
+
 #' @export
 #' @rdname as.deque
 as.deque.queue <- function(x)
@@ -51,6 +57,8 @@ as.deque.queue <- function(x)
   class(x) <- "deque"
   return(x)
 }
+
+
 
 #' @export
 #' @rdname as.deque

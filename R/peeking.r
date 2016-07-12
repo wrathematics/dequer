@@ -42,6 +42,8 @@ peekbacker <- function(x, n) headtail(x, n=1L, PEEKER_TAILS)
 #' @rdname peeking
 NULL
 
+
+
 #' @rdname peeking
 #' @export
 peek <- function(x, n=1L) UseMethod("peek")
