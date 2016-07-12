@@ -126,10 +126,5 @@ SEXP R_deque_combine(SEXP deque_ptr1, SEXP deque_ptr2)
   
   deque_combine(dl1, dl2);
   
-  free(dl2);
-  R_ClearExternalPtr(deque_ptr2);
-  
   return R_NilValue;
 }
-
-

@@ -11,6 +11,9 @@ sep(x, k)
 
 \item{k}{Index to split the deque at.}
 }
+\value{
+
+}
 \description{
 Split one deque into two deques.
 }
@@ -28,10 +31,12 @@ library(dequer)
 d <- deque()
 for (i in 1:5) push(d, i)
 
-d_new <- sep(d, 3)
+### Split d into 2 deques
+d_last_2 <- sep(d, 3)
 
+### d now holds the first 3 elements
 print(d, output="full")
-print(d_new, output="full")
+print(d_last_5, output="full")
 }
 
 }

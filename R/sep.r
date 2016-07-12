@@ -15,16 +15,21 @@
 #' @param k
 #' Index to split the deque at.
 #' 
+#' @return
+#' 
+#' 
 #' @examples
 #' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' for (i in 1:5) push(d, i)
 #' 
-#' d_new <- sep(d, 3)
+#' ### Split d into 2 deques
+#' d_last_2 <- sep(d, 3)
 #' 
+#' ### d now holds the first 3 elements
 #' print(d, output="full")
-#' print(d_new, output="full")
+#' print(d_last_5, output="full")
 #' }
 #' 
 #' @export
@@ -35,7 +40,7 @@ sep <- function(x, k)
     stop("'k' must be a positive integer")
   
   if (k > length(x))
-    stop("")
+    stop("'k' is greater than the ")
   
   ret <- .Call(R_deque_split, x, as.integer(k))
   class(ret) <- "deque"
