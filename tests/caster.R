@@ -6,7 +6,7 @@ q <- queue()
 for (i in 1:10) pushback(q, i)
 
 s <- stack()
-for (i in 10:1) push(s, i)
+for (i in 1:10) pushback(s, i)
 
 
 lq <- as.list(q)
