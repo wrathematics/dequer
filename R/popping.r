@@ -9,6 +9,9 @@
 #' @param x
 #' A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.
 #' 
+#' @return
+#' Returns \code{NULL}; deletion operates via side-effects.
+#' 
 #' @examples
 #' library(dequer)
 #' d <- deque()

@@ -6,6 +6,9 @@
 #' @param x
 #' A deque.
 #' 
+#' @return
+#' Returns \code{NULL}; insertion operates via side-effects.
+#' 
 #' @examples
 #' library(dequer)
 #' d <- deque()

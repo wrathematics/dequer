@@ -27,6 +27,9 @@ pushback(x, data)
 
 \item{data}{R object to insert at the front of the deque/stack.}
 }
+\value{
+Returns \code{NULL}; insertion operates via side-effects.
+}
 \description{
 Add items to the front of a deque/stack for \code{pop()}; or, 
 add items to the back of a deque/stack for \code{popback()}.

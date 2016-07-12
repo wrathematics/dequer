@@ -11,6 +11,9 @@
 #' @param data
 #' R object to insert at the front of the deque/stack.
 #' 
+#' @return
+#' Returns \code{NULL}; insertion operates via side-effects.
+#' 
 #' @examples
 #' library(dequer)
 #' d <- deque()

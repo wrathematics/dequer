@@ -20,12 +20,17 @@ peekbacker <- function(x, n) headtail(x, n=1L, TAILS)
 #' or \code{peekback()}, respectively. Similar to \code{head()} and \code{tail()}.
 #' 
 #' @description
-#' These methods are side-effect free.
+#' These methods are side-effect free. Note that unlike R's \code{head()} and
+#' \code{tail()}, the sub-objects are not actually created. They are merely
+#' printed.
 #' 
 #' @param x
 #' A deque or a stack.
 #' @param n
 #' The number of items to view.
+#' 
+#' @return
+#' Returns \code{NULL}; sub-elements are only printed.
 #' 
 #' @examples
 #' library(dequer)

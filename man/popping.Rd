@@ -25,6 +25,9 @@ popback(x)
 \arguments{
 \item{x}{A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.}
 }
+\value{
+Returns \code{NULL}; deletion operates via side-effects.
+}
 \description{
 Remove items from the front of a deque/stack for \code{pop()}; or, 
 remove items from the back of a deque/stack for \code{popback()}.

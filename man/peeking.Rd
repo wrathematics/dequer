@@ -27,8 +27,13 @@ peekback(x, n = 1L)
 
 \item{n}{The number of items to view.}
 }
+\value{
+Returns \code{NULL}; sub-elements are only printed.
+}
 \description{
-These methods are side-effect free.
+These methods are side-effect free. Note that unlike R's \code{head()} and
+\code{tail()}, the sub-objects are not actually created. They are merely
+printed.
 }
 \details{
 View items from the front/back of a deque or a stack, for \code{peek()} or

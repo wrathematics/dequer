@@ -10,6 +10,9 @@
 \arguments{
 \item{x}{A deque.}
 }
+\value{
+Returns \code{NULL}; insertion operates via side-effects.
+}
 \description{
 rev
 }
