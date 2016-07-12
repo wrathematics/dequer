@@ -43,7 +43,7 @@ pop.deque <- function(x) invisible(.Call(R_deque_pop, x))
 
 #' @rdname popping
 #' @export
-pop.stack <- function(x) invisible(.Call(R_deque_pop, x))
+pop.queue <- function(x) invisible(.Call(R_deque_popback, x))
 
 
 
@@ -57,4 +57,4 @@ popback.deque <- function(x) invisible(.Call(R_deque_popback, x))
 
 #' @rdname popping
 #' @export
-popback.queue <- function(x) invisible(.Call(R_deque_pop, x))
+popback.stack <- function(x) invisible(.Call(R_deque_pop, x))

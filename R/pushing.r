@@ -40,9 +40,6 @@ push <- function(x, data) UseMethod("push")
 #' @export
 push.deque <- function(x, data) invisible(.Call(R_deque_push, x, data))
 
-#' @rdname pushing
-#' @export
-push.stack <- function(x, data) invisible(.Call(R_deque_push, x, data))
 
 
 
@@ -53,6 +50,10 @@ pushback <- function(x, data) UseMethod("pushback")
 #' @rdname pushing
 #' @export
 pushback.deque <- function(x, data) invisible(.Call(R_deque_pushback, x, data))
+
+#' @rdname pushing
+#' @export
+pushback.stack <- function(x, data) invisible(.Call(R_deque_push, x, data))
 
 #' @rdname pushing
 #' @export

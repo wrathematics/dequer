@@ -3,10 +3,10 @@
 \name{popping}
 \alias{pop}
 \alias{pop.deque}
-\alias{pop.stack}
+\alias{pop.queue}
 \alias{popback}
 \alias{popback.deque}
-\alias{popback.queue}
+\alias{popback.stack}
 \alias{popping}
 \title{pop/popback}
 \usage{
@@ -14,13 +14,13 @@ pop(x)
 
 \method{pop}{deque}(x)
 
-\method{pop}{stack}(x)
+\method{pop}{queue}(x)
 
 popback(x)
 
 \method{popback}{deque}(x)
 
-\method{popback}{queue}(x)
+\method{popback}{stack}(x)
 }
 \arguments{
 \item{x}{A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.}

@@ -54,6 +54,7 @@ as.deque.default <- function(x)
 #' @rdname as.deque
 as.deque.queue <- function(x)
 {
+  rev(x)
   class(x) <- "deque"
   return(x)
 }
@@ -64,6 +65,7 @@ as.deque.queue <- function(x)
 #' @rdname as.deque
 as.deque.stack <- function(x)
 {
+  rev(x)
   class(x) <- "deque"
   return(x)
 }

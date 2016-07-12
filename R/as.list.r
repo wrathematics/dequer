@@ -21,5 +21,9 @@ as.list.queue <- function(x, ...)
 #' @export
 as.list.stack <- function(x, ...)
 {
-  .Call(R_deque_to_Rlist, x)
+  rev(x)
+  ret <- .Call(R_deque_to_Rlist, x)
+  rev(x)
+  
+  ret
 }
