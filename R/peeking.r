@@ -6,8 +6,8 @@ headtail <- function(x, n, headsortails)
   invisible()
 }
 
-peeker <- function(x, n) headtail(x, n=n, PEEKER_HEADS)
-peekbacker <- function(x, n) headtail(x, n=n, PEEKER_TAILS)
+peeker <- function(x, n=1L) headtail(x, n=n, PEEKER_HEADS)
+peekbacker <- function(x, n=1L) headtail(x, n=n, PEEKER_TAILS)
 
 
 

@@ -1,14 +1,13 @@
 suppressPackageStartupMessages(library(dequer))
 
-dl <- deque()
+d <- deque()
 
-pushback(dl, 1)
-pushback(dl, 2)
+for (i in 1:2) pushback(d, i)
 
-test <- capture.output(peek(dl))
+test <- capture.output(peek(d))
 truth <- c("[[1]]", "[1] 1", "")
 stopifnot(all.equal(test, truth))
 
-test <- capture.output(peekback(dl))
+test <- capture.output(peekback(d))
 truth <- c("[[1]]", "[1] 2", "")
 stopifnot(all.equal(test, truth))
