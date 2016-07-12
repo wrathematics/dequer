@@ -27,7 +27,9 @@ as.deque.list <- function(x)
   d <- deque()
   
   for (obj in x)
-    pushback(d, obj)
+    push(d, obj)
+  
+  rev(d)
   
   return(d)
 }
@@ -52,4 +54,8 @@ as.deque.queue <- function(x)
 
 #' @export
 #' @rdname as.deque
-as.deque.stack <- as.deque.queue
+as.deque.stack <- function(x)
+{
+  class(x) <- "deque"
+  return(x)
+}

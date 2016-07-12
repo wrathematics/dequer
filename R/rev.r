@@ -20,12 +20,27 @@
 #' print(d, output="full")
 #' }
 #' 
-#' @name rev-deque
-#' @rdname rev-deque
+#' @name revver
+#' @rdname revver
 #' @method rev deque
-#' @export
-rev.deque <- function(x)
+#' @method rev stack
+#' @method rev queue
+NULL
+
+revver <- function(x)
 {
   .Call(R_deque_reverse, x)
   invisible()
 }
+
+#' @rdname revver
+#' @export
+rev.deque <- revver
+
+#' @rdname revver
+#' @export
+rev.stack <- revver
+
+#' @rdname revver
+#' @export
+rev.queue <- revver

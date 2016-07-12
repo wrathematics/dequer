@@ -1,4 +1,4 @@
-printer <- function(x, ..., output="summary")
+printer <- function(x, output="summary", printorder)
 {
   output <- match.arg(tolower(output), c("summary", "truncated", "full"))
   
@@ -15,7 +15,7 @@ printer <- function(x, ..., output="summary")
     else
       printlevel <- 2L
     
-    .Call(R_deque_print, x, printlevel)
+    .Call(R_deque_print, x, printlevel, printorder)
   }
   invisible()
 }
@@ -49,12 +49,21 @@ NULL
 
 #' @rdname printer
 #' @export
-print.deque <- printer
+print.deque <- function(x, ..., output="summary")
+{
+  printer(x=x, output=output, printorder=1L)
+}
 
 #' @rdname printer
 #' @export
-print.stack <- printer
+print.stack <- function(x, ..., output="summary")
+{
+  printer(x=x, output=output, printorder=1L)
+}
 
 #' @rdname printer
 #' @export
-print.queue <- printer
+print.queue <- function(x, ..., output="summary")
+{
+  printer(x=x, output=output, printorder=2L)
+}

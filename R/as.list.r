@@ -9,6 +9,7 @@ as.list.deque <- function(x, ...)
 #' @export
 as.list.queue <- function(x, ...)
 {
+  rev(x)
   .Call(R_deque_to_Rlist, x)
 }
 

@@ -1,6 +1,3 @@
-HEADS <- 1L
-TAILS <- 2L
-
 headtail <- function(x, n, headsortails)
 {
   n <- as.integer(n)
@@ -9,8 +6,8 @@ headtail <- function(x, n, headsortails)
   invisible()
 }
 
-peeker <- function(x, n) headtail(x, n=1L, HEADS)
-peekbacker <- function(x, n) headtail(x, n=1L, TAILS)
+peeker <- function(x, n) headtail(x, n=1L, PEEKER_HEADS)
+peekbacker <- function(x, n) headtail(x, n=1L, PEEKER_TAILS)
 
 
 
@@ -69,4 +66,4 @@ peekback.deque <- peekbacker
 
 #' @rdname peeking
 #' @export
-peekback.queue <- peekbacker
+peekback.queue <- peeker

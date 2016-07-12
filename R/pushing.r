@@ -54,4 +54,4 @@ pushback.deque <- function(x, data) invisible(.Call(R_deque_pushback, x, data))
 
 #' @rdname pushing
 #' @export
-pushback.queue <- function(x, data) invisible(.Call(R_deque_pushback, x, data))
+pushback.queue <- function(x, data) invisible(.Call(R_deque_push, x, data))

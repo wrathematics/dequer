@@ -49,6 +49,12 @@ typedef struct list_t{
 } list_t;
 
 
+#define PRINTORDER_FORWARD 1
+#define PRINTORDER_REVERSE 2
+
+#define PEEKER_HEAD 1
+#define PEEKER_TAIL 2
+
 
 // External pointer shorthand
 #define newRptr(ptr,Rptr,fin) PROTECT(Rptr = R_MakeExternalPtr(ptr, R_NilValue, R_NilValue));R_RegisterCFinalizerEx(Rptr, fin, TRUE)
@@ -72,4 +78,3 @@ void deque_print(deque_t *dl);
 
 
 #endif
-
