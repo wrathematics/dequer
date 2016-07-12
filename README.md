@@ -227,67 +227,62 @@ All of these unnecessary memory operations are very expensive if you need to do 
 
 ## Operations
 
-At this time, stacks objects support:
+The supported operations for each object are:
 
 | Operation | queue | stack | deque |
 | --------- | ----- | ----- | ----- |
-| `as.list()` | ✓ | ✓ | ✓ | 
+| `as.list()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `length()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `peek()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `peekback()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `pop()` | <font color="green">Yes</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
+| `popback()` | <font color="red">No</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `push()` | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
+| `pushback()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `str()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
 
-* `as.list()`
-* `push()`, `pushback()`, `pop()`, and `popback()`
-* `rev()`
-* `length()`
-* `head()` and `tail()`
-* `str()` and special `print()`-ing
-* `combine()` and `split()`
+There are also several "advanced" operations, which could lead to performance loss during garbage collection (see the issues section for more details):
 
-Unlike probably everything you've ever used with R, most of these functions operate by side-effects.  For example, say you want to reverse the deque.  With normal R things, you would call:
+| Operation | queue | stack | deque |
+| --------- | ----- | ----- | ----- |
+| `combine()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `rev()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `sep()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+
+
+Unlike most R functions, all these operations operate via side-effects.  For example, to reverse a list, you might do something like
 
 ```r
-reversed_object <- rev(object)
+l.rev <- rev(l)
 ```
 
-This creates a copy of the memory stored in `object`, just reversed. For an object that is inherently meant to be temporary, like the deque, this is needlessly costly.  Instead, we would call:
+This creates a new copy of the list, only with items in reverse.  For **dequer** package objects, you would just call:
 
 ```r
-rev(d) ### d is a deque
+rev(object) # 'object' is a queue, stack, or deque
 ```
 
-In this case, `rev()` will return `NULL`, but the object is still reversed.  Observe:
+The function execution will actually return `NULL`; the object itself has been reversed without making any copies.  Observe:
 
 ```r
 library(dequer)
-d <- deque()
-for (i in 1:10) pushback(d, i)
+q <- queue()
+for (i in 1:3) pushback(q, i)
+str(q)
+## queue of 3
+##  $ : int 1
+##  $ : int 2
+##  $ : int 3
 
-d
-# [1] "A deque object with 10 elements."
-
-head(d, 2)
-# [[1]]
-# [1] 1
-# 
-# [[2]]
-# [1] 2
-
-rev(d)
-
-head(d, 2)
-# [[1]]
-# [1] 10
-# 
-# [[2]]
-# [1] 9
+rev(q)
+str(q)
+## queue of 3
+##  $ : int 3
+##  $ : int 2
+##  $ : int 1
 ```
 
-It is not only faster to perform the reverse without making a copy (just rearranging some pointers), but we don't have to carry around a bunch of memory we no longer care about.
 
-Most deque functions operate by side-effects (it should be clear from the previous example that `pushback()` does as well).  The deque operations that don't have side-effects are:
-
-* `as.list()` (returns a list)
-* `length()` (returns an integer)
-* `head()` and `tail()` (return a list, or `NULL` if just printing)
-* `str()` and `print()` (return `NULL`)
 
 
 
