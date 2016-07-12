@@ -8,7 +8,7 @@ str.deque <- function(object, ...)
 #' @export
 str.stack <- function(object, ...)
 {
-  .Call(R_deque_str, object, "stack", PRINTORDER_FORWARD)
+  .Call(R_deque_str, object, "stack", PRINTORDER_REVERSE)
   invisible()
 }
 

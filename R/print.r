@@ -51,19 +51,19 @@ NULL
 #' @export
 print.deque <- function(x, ..., output="summary")
 {
-  printer(x=x, output=output, printorder=1L)
+  printer(x=x, output=output, printorder=PRINTORDER_FORWARD)
 }
 
 #' @rdname printer
 #' @export
 print.stack <- function(x, ..., output="summary")
 {
-  printer(x=x, output=output, printorder=1L)
+  printer(x=x, output=output, printorder=PRINTORDER_REVERSE)
 }
 
 #' @rdname printer
 #' @export
 print.queue <- function(x, ..., output="summary")
 {
-  printer(x=x, output=output, printorder=2L)
+  printer(x=x, output=output, printorder=PRINTORDER_REVERSE)
 }
