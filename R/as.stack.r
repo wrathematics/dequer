@@ -9,9 +9,11 @@
 #' A stack object.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' s <- as.stack(lapply(1:5, identity))
 #' s
+#' }
 #' 
 #' @export
 #' @name as.stack

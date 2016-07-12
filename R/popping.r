@@ -13,6 +13,7 @@
 #' Returns \code{NULL}; deletion operates via side-effects.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' pushback(d, 1)
@@ -24,6 +25,7 @@
 #' 
 #' popback(d)
 #' print(d, output="full")
+#' }
 #' 
 #' @name popping
 #' @rdname popping

@@ -15,6 +15,7 @@
 #' Returns \code{NULL}; insertion operates via side-effects.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' pushback(d, 1)
@@ -23,6 +24,7 @@
 #' 
 #' push(d, 3)
 #' print(d, output="full")
+#' }
 #' 
 #' @name pushing
 #' @rdname pushing

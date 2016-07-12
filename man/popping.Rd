@@ -36,6 +36,7 @@ remove items from the back of a deque/stack for \code{popback()}.
 Operates via side-effects; see examples for clarification on usage.
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- deque()
 pushback(d, 1)
@@ -47,6 +48,7 @@ print(d, output="full")
 
 popback(d)
 print(d, output="full")
+}
 
 }
 

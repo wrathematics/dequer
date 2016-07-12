@@ -6,9 +6,11 @@
 #' objects can happen at either end.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' d
+#' }
 #' 
 #' @export
 deque <- function()
@@ -39,6 +41,7 @@ deque <- function()
 #' Index to split the deque at.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' for (i in 1:5) push(d, i)
@@ -47,6 +50,7 @@ deque <- function()
 #' 
 #' print(d, output="full")
 #' print(d_new, output="full")
+#' }
 #' 
 #' @export
 sep <- function(x, k)
@@ -85,6 +89,7 @@ sep <- function(x, k)
 #' Two different deques.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d1 <- deque()
 #' for (i in 1:5) push(d1, i)
@@ -92,6 +97,7 @@ sep <- function(x, k)
 #' for (i in 10:8) push(d2, i)
 #' 
 #' combine(d1, d2)
+#' }
 #' 
 #' @export
 combine <- function(x1, x2)

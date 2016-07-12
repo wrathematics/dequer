@@ -9,9 +9,11 @@
 #' A queue object.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' q <- as.queue(lapply(1:5, identity))
 #' q
+#' }
 #' 
 #' @export
 #' @name as.queue
@@ -56,5 +58,3 @@ as.queue.stack <- function(x)
   rev.deque(x)
   return(x)
 }
-
-

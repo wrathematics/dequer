@@ -33,11 +33,13 @@ peekbacker <- function(x, n) headtail(x, n=1L, TAILS)
 #' Returns \code{NULL}; sub-elements are only printed.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' push(d, 1)
 #' push(d, 2)
 #' peek(d)
+#' }
 #' 
 #' @name peeking
 #' @rdname peeking

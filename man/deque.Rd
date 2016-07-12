@@ -14,9 +14,11 @@ A deque is a double-ended queue.  Insertion and deletion of
 objects can happen at either end.
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- deque()
 d
+}
 
 }
 

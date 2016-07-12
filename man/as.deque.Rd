@@ -30,9 +30,11 @@ A deque object.
 Convert to Deque
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- as.deque(lapply(1:5, identity))
 d
+}
 
 }
 

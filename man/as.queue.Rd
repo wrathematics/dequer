@@ -30,9 +30,11 @@ A queue object.
 Convert to Queue
 }
 \examples{
+\dontrun{
 library(dequer)
 q <- as.queue(lapply(1:5, identity))
 q
+}
 
 }
 

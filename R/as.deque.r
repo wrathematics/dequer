@@ -9,9 +9,11 @@
 #' A deque object.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- as.deque(lapply(1:5, identity))
 #' d
+#' }
 #' 
 #' @export
 #' @name as.deque

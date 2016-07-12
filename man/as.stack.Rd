@@ -30,9 +30,11 @@ A stack object.
 Convert to Stack
 }
 \examples{
+\dontrun{
 library(dequer)
 s <- as.stack(lapply(1:5, identity))
 s
+}
 
 }
 

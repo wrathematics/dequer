@@ -38,6 +38,7 @@ add items to the back of a deque/stack for \code{popback()}.
 Operates via side-effects; see examples for clarification on usage.
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- deque()
 pushback(d, 1)
@@ -46,6 +47,7 @@ print(d, output="full")
 
 push(d, 3)
 print(d, output="full")
+}
 
 }
 

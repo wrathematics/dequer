@@ -40,11 +40,13 @@ View items from the front/back of a deque or a stack, for \code{peek()} or
 or \code{peekback()}, respectively. Similar to \code{head()} and \code{tail()}.
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- deque()
 push(d, 1)
 push(d, 2)
 peek(d)
+}
 
 }
 

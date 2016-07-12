@@ -7,15 +7,17 @@
 stack()
 }
 \description{
-An initializer for a stack.
-}
-\details{
 A stack is a "last in, first out" data structure.
 }
+\details{
+An initializer for a stack.
+}
 \examples{
+\dontrun{
 library(dequer)
 s <- stack()
 s
+}
 
 }
 

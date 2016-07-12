@@ -23,6 +23,7 @@ have elements 1 to k, and the return will have values
 k+1, k+2, ..., n.
 }
 \examples{
+\dontrun{
 library(dequer)
 d <- deque()
 for (i in 1:5) push(d, i)
@@ -31,6 +32,7 @@ d_new <- sep(d, 3)
 
 print(d, output="full")
 print(d_new, output="full")
+}
 
 }
 

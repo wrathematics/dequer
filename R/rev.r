@@ -10,6 +10,7 @@
 #' Returns \code{NULL}; insertion operates via side-effects.
 #' 
 #' @examples
+#' \dontrun{
 #' library(dequer)
 #' d <- deque()
 #' for (i in 1:5) push(d, i)
@@ -17,6 +18,7 @@
 #' print(d, output="full")
 #' rev(d)
 #' print(d, output="full")
+#' }
 #' 
 #' @name rev-deque
 #' @rdname rev-deque
