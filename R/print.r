@@ -3,7 +3,11 @@ printer <- function(x, ..., output="summary")
   output <- match.arg(tolower(output), c("summary", "truncated", "full"))
   
   if (output == "summary")
-    cat(paste("A", class(x), "with", length(x), "elements."), "\n")
+  {
+    len <- length(x)
+    word <- ifelse(len != 1, "elements", "element")
+    cat(paste("A", class(x), "with", len, word), "\n")
+  }
   else
   {
     if (output == "truncated")
