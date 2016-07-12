@@ -7,7 +7,11 @@
 combine(x1, x2)
 }
 \arguments{
-\item{x1, x2}{Two different deques.}
+\item{x1, x2}{Two different deques, stacks, or queues. Arguments must be of the same type.}
+}
+\value{
+Returns \code{NULL}. After combining, object \code{x2} is a 0-length (empty)
+object.
 }
 \description{
 Combine two deques into one deque.

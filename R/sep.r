@@ -46,7 +46,7 @@ sep <- function(x, k)
     stop("'k' must be less than length(x)")
   
   ret <- .Call(R_deque_split, x, as.integer(k))
-  class(ret) <- "deque"
+  class(ret) <- class(x)
   
   ret
 }

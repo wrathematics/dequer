@@ -14,7 +14,11 @@
 #' print(d, output="full")
 #' 
 #' @param x1,x2
-#' Two different deques.
+#' Two different deques, stacks, or queues. Arguments must be of the same type.
+#' 
+#' @return
+#' Returns \code{NULL}. After combining, object \code{x2} is a 0-length (empty)
+#' object.
 #' 
 #' @examples
 #' \dontrun{

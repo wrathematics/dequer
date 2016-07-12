@@ -1,4 +1,4 @@
-/*  Copyright (c) 2015, Schmidt
+/*  Copyright (c) 2015-2016, Schmidt
     All rights reserved.
     
     Redistribution and use in source and binary forms, with or without
@@ -29,10 +29,8 @@
 
 #define MIN(x,y) (x<y?x:y)
 
-#define PRINT_FEW 1
-#define PRINT_ALL 2
-
-#define TRUNCLEN 5
+#define PRINT_TRUNCLEN 5
+#define STR_TRUNCLEN   25
 
 SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel, SEXP printorder_)
 {
@@ -50,8 +48,8 @@ SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel, SEXP printorder_)
   
   if (INTEGER(printlevel)[0] == PRINT_FEW)
   {
-    printlen = MIN(dl->len,TRUNCLEN);
-    truncated = dl->len<TRUNCLEN?0:1;
+    printlen = MIN(dl->len,PRINT_TRUNCLEN);
+    truncated = dl->len<PRINT_TRUNCLEN?0:1;
   }
   else
   {
@@ -112,11 +110,12 @@ SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   list_t *l;
   const int len = dl->len;
+  const int printlen = MIN(len, STR_TRUNCLEN);
   const int printorder = INTEGER(printorder_)[0];
   
   if (len == 0)
   {
-    Rprintf(" deque()\n");
+    Rprintf(" %s()\n", CHARPT(obj_type, 0));
     return R_NilValue;
   }
   
@@ -130,12 +129,15 @@ SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
   else
     l = dl->end;
   
-  for (int i=0; i<len; i++)
+  for (int i=0; i<printlen; i++)
   {
     Rprintf(" $ :");
     eval( lang2( install("str"), l->data), basePackage);
     l = (printorder == PRINTORDER_FORWARD ? l->next : l->prev);
   }
+  
+  if (len > printlen)
+    Rprintf("  [output truncated to %d of %d elements]\n", printlen, len);
   
   UNPROTECT(1);
   return R_NilValue;

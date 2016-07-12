@@ -11,9 +11,9 @@ printer <- function(x, output="summary", printorder)
   else
   {
     if (output == "truncated")
-      printlevel <- 1L
+      printlevel <- PRINT_FEW
     else
-      printlevel <- 2L
+      printlevel <- PRINT_ALL
     
     .Call(R_deque_print, x, printlevel, printorder)
   }

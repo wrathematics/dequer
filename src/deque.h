@@ -55,6 +55,9 @@ typedef struct list_t{
 #define PEEKER_HEAD 1
 #define PEEKER_TAIL 2
 
+#define PRINT_FEW 1
+#define PRINT_ALL 2
+
 
 // External pointer shorthand
 #define newRptr(ptr,Rptr,fin) PROTECT(Rptr = R_MakeExternalPtr(ptr, R_NilValue, R_NilValue));R_RegisterCFinalizerEx(Rptr, fin, TRUE)
