@@ -35,19 +35,13 @@ NULL
 #' @export
 pop <- function(x) UseMethod("pop")
 
-popper <- function(x)
-{
-  .Call(R_deque_pop, x)
-  invisible()
-}
+#' @rdname popping
+#' @export
+pop.deque <- function(x) invisible(.Call(R_deque_pop, x))
 
 #' @rdname popping
 #' @export
-pop.deque <- popper
-
-#' @rdname popping
-#' @export
-pop.stack <- popper
+pop.stack <- function(x) invisible(.Call(R_deque_pop, x))
 
 
 
@@ -55,16 +49,10 @@ pop.stack <- popper
 #' @export
 popback <- function(x) UseMethod("popback")
 
-popperback <- function(x)
-{
-  .Call("R_deque_popback", x)
-  invisible()
-}
+#' @rdname popping
+#' @export
+popback.deque <- function(x) invisible(.Call(R_deque_popback, x))
 
 #' @rdname popping
 #' @export
-popback.deque <- popperback
-
-#' @rdname popping
-#' @export
-popback.queue <- popperback
+popback.queue <- function(x) invisible(.Call(R_deque_popback, x))
