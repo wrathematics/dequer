@@ -5,7 +5,7 @@ headtail <- function(x, n, headsortails)
 {
   n <- as.integer(n)
   
-  .Call("R_deque_headsortails", x, n, headsortails)
+  .Call(R_deque_headsortails, x, n, headsortails)
   invisible()
 }
 

@@ -14,7 +14,7 @@
 #' @export
 queue <- function()
 {
-  ret <- .Call("R_deque_create")
+  ret <- .Call(R_deque_create)
   class(ret) <- "queue"
   
   ret

@@ -1,7 +1,7 @@
 #' @export
 str.deque <- function(object, ...)
 {
-  .Call("R_deque_str", object, "Deque")
+  .Call(R_deque_str, object, "Deque")
   invisible()
 }
 
@@ -10,7 +10,7 @@ str.deque <- function(object, ...)
 #' @export
 str.queue <- function(object, ...)
 {
-  .Call("R_deque_str", object, "Queue")
+  .Call(R_deque_str, object, "Queue")
   invisible()
 }
 
@@ -19,7 +19,6 @@ str.queue <- function(object, ...)
 #' @export
 str.stack <- function(object, ...)
 {
-  .Call("R_deque_str", object, "Stack")
+  .Call(R_deque_str, object, "Stack")
   invisible()
 }
-

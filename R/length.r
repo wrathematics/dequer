@@ -1,7 +1,7 @@
 #' @export
 length.deque <- function(x)
 {
-  .Call("R_deque_length", x)
+  .Call(R_deque_length, x)
 }
 
 
@@ -9,7 +9,7 @@ length.deque <- function(x)
 #' @export
 length.queue <- function(x)
 {
-  .Call("R_deque_length", x)
+  .Call(R_deque_length, x)
 }
 
 
@@ -17,5 +17,5 @@ length.queue <- function(x)
 #' @export
 length.stack <- function(x)
 {
-  .Call("R_deque_length", x)
+  .Call(R_deque_length, x)
 }

@@ -24,6 +24,6 @@
 #' @export
 rev.deque <- function(x)
 {
-  .Call("R_deque_reverse", x)
+  .Call(R_deque_reverse, x)
   invisible()
 }

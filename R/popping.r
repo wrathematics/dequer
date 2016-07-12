@@ -35,7 +35,7 @@ pop <- function(x) UseMethod("pop")
 
 popper <- function(x)
 {
-  .Call("R_deque_pop", x)
+  .Call(R_deque_pop, x)
   invisible()
 }
 

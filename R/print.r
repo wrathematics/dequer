@@ -34,9 +34,7 @@ print.deque <- function(x, ..., output="summary")
     else
       printlevel <- 2L
     
-    .Call("R_deque_print", x, printlevel)
+    .Call(R_deque_print, x, printlevel)
   }
   invisible()
 }
-
-

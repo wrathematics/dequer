@@ -12,7 +12,7 @@
 #' @export
 stack <- function()
 {
-  ret <- .Call("R_deque_create")
+  ret <- .Call(R_deque_create)
   class(ret) <- "stack"
   
   ret

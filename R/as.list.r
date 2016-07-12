@@ -1,7 +1,7 @@
 #' @export
 as.list.deque <- function(x, ...)
 {
-  .Call("R_deque_to_Rlist", x)
+  .Call(R_deque_to_Rlist, x)
 }
 
 
@@ -9,7 +9,7 @@ as.list.deque <- function(x, ...)
 #' @export
 as.list.queue <- function(x, ...)
 {
-  .Call("R_deque_to_Rlist", x)
+  .Call(R_deque_to_Rlist, x)
 }
 
 
@@ -17,6 +17,5 @@ as.list.queue <- function(x, ...)
 #' @export
 as.list.stack <- function(x, ...)
 {
-  .Call("R_deque_to_Rlist", x)
+  .Call(R_deque_to_Rlist, x)
 }
-
