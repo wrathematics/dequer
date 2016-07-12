@@ -30,8 +30,12 @@
 #' @export
 combine <- function(x1, x2)
 {
-  if (class(x1) != "deque") stop("'x1' must be a deque.")
-  if (class(x2) != "deque") stop("'x2' must be a deque.")
+  if (!(class(x1) %in% CLASSES))
+    stop("'x1' must be a deque, stack, or queue.")
+  if (!(class(x2) %in% CLASSES))
+    stop("'x2' must be a deque, stack, or queue.")
+  if (class(x1) != class(x2))
+    stop("'x1' and 'x2' must be the same class")
   
   .Call(R_deque_combine, x1, x2)
   invisible()

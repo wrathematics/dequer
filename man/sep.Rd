@@ -12,13 +12,15 @@ sep(x, k)
 \item{k}{Index to split the deque at.}
 }
 \value{
-
+A deque, stack, or queue (depending on the input)
 }
 \description{
-Split one deque into two deques.
+Split one deque into two deques. Unlike most dequer functions, this one
+has a return!
 }
 \details{
-Operates via side-effects; see examples for clarification on usage.
+Operates via side-effects ALTHOUGH THERE IS A NON-NULL RETURN; see examples
+for clarification on usage.
 
 The split occurs after index k.  So if the input x has, say,
 elements 1 to n, then after running \code{sep(x, k)}, x will

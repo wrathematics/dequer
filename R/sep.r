@@ -18,7 +18,7 @@
 #' Index to split the deque at.
 #' 
 #' @return
-#' 
+#' A deque, stack, or queue (depending on the input)
 #' 
 #' @examples
 #' \dontrun{
@@ -37,12 +37,13 @@
 #' @export
 sep <- function(x, k)
 {
-  if (class(x) != "deque") stop("'x' must be a deque.")
-  if (!is.numeric(k) || abs(k-round(k)) > 1e-8 || k < 1)
+  if (!(class(x) %in% CLASSES))
+    stop("'x' must be a deque, stack, or queue.")
+  if (!is.numeric(k) || abs(k-round(k)) > 1e-12 || k < 1)
     stop("'k' must be a positive integer")
   
-  if (k > length(x))
-    stop("'k' is greater than the ")
+  if (k >= length(x))
+    stop("'k' must be less than length(x)")
   
   ret <- .Call(R_deque_split, x, as.integer(k))
   class(ret) <- "deque"
