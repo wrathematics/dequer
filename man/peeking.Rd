@@ -3,16 +3,20 @@
 \name{peeking}
 \alias{peek}
 \alias{peek.deque}
+\alias{peek.queue}
 \alias{peek.stack}
 \alias{peekback}
 \alias{peekback.deque}
 \alias{peekback.queue}
+\alias{peekback.stack}
 \alias{peeking}
 \title{peek/peekback}
 \usage{
 peek(x, n = 1L)
 
 \method{peek}{deque}(x, n)
+
+\method{peek}{queue}(x, n)
 
 \method{peek}{stack}(x, n)
 
@@ -21,6 +25,8 @@ peekback(x, n = 1L)
 \method{peekback}{deque}(x, n)
 
 \method{peekback}{queue}(x, n)
+
+\method{peekback}{stack}(x, n)
 }
 \arguments{
 \item{x}{A deque or a stack.}
