@@ -1,9 +1,15 @@
 #' dequer
 #' 
-#' A deque (pronounced like "deck") is a "double ended queue".  This
-#' behaves somewhat like a list in R; but unlike an R list (which is
-#' a contiguous array of pointers), the memory of a deque isn't
-#' necessarily contiguous.
+#' Stacks, queues, and deques are list-like, abstract data types. 
+#' These are meant to be very cheap to "grow", or insert new objects into.
+#' A typical use case involves storing data in a list in a streaming fashion,
+#' when you do not necessarily know how may elements need to be stored.
+#' Unlike R's lists, data the new data structures provided here is not
+#' necessarily stored contiguously, making insertions and deletions at the
+#' front/end of the structure much faster.  The underlying implementation here
+#' is new and uses a doubly linked list, and thus does not rely on R's
+#' environments or hashing.  To avoid unnecessary data copying, most operations
+#' on these data structures are performed via side-effects.
 #' 
 #' @useDynLib dequer R_deque_create R_deque_combine R_deque_headsortails 
 #' R_deque_length R_deque_pop R_deque_popback R_deque_print R_deque_push

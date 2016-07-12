@@ -1,15 +1,17 @@
 Package: dequer
 Type: Package
-Title: A 'Deque' Container for R
+Title: Stacks, Queues, and 'Deques' for R
 Version: 1.1-0
-Description: A 'deque' is a list or vector-like data structure.  These are
-    meant to be very cheap to insert new objects intoHowever,
-    unlike R's list structure, data put into a 'deque' is not necessarily
-    stored contiguously, making insertions and deletions at the front/end
-    of the structure much faster.  The implementation here is new and
-    uses a doubly linked list, and whence does not rely on R's
-    environments.  To avoid unnecessary data copying, most 'deque'
-    operations are performed via side-effects.
+Description: Stacks, queues, and 'deques' are list-like, abstract data types. 
+    These are meant to be very cheap to "grow", or insert new objects into.
+    A typical use case involves storing data in a list in a streaming fashion,
+    when you do not necessarily know how may elements need to be stored.
+    Unlike R's lists, data the new data structures provided here is not
+    necessarily stored contiguously, making insertions and deletions at the
+    front/end of the structure much faster.  The underlying implementation here
+    is new and uses a doubly linked list, and thus does not rely on R's
+    environments or hashing.  To avoid unnecessary data copying, most operations
+    on these data structures are performed via side-effects.
 License: BSD 2-clause License + file LICENSE
 Depends:
     R (>= 3.1.0)
