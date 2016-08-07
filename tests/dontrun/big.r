@@ -6,12 +6,12 @@ n <- 1e5
 l1 <- lapply(n:1, identity)
 
 system.time({
-  dl <- deque()
-  for (i in 1:n) push(dl, i)
-  l2 <- as.list(dl)
+  d <- deque()
+  for (i in 1:n) push(d, i)
+  l2 <- as.list(d)
 })
 stopifnot(identical(l1, l2))
-rm(dl, l2)
+rm(d, l2)
 invisible(gc())
 
 

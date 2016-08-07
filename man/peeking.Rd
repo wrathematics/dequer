@@ -14,19 +14,19 @@
 \usage{
 peek(x, n = 1L)
 
-\method{peek}{deque}(x, n)
+\method{peek}{deque}(x, n = 1L)
 
-\method{peek}{queue}(x, n)
+\method{peek}{queue}(x, n = 1L)
 
-\method{peek}{stack}(x, n)
+\method{peek}{stack}(x, n = 1L)
 
 peekback(x, n = 1L)
 
-\method{peekback}{deque}(x, n)
+\method{peekback}{deque}(x, n = 1L)
 
-\method{peekback}{queue}(x, n)
+\method{peekback}{queue}(x, n = 1L)
 
-\method{peekback}{stack}(x, n)
+\method{peekback}{stack}(x, n = 1L)
 }
 \arguments{
 \item{x}{A deque or a stack.}

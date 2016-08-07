@@ -1,44 +1,31 @@
 library(dequer)
+library(rbenchmark)
+cols <- cols <- c("test", "replications", "elapsed", "relative")
 
-
-n <- 2e5
-
-#cat("-------- push --------\n")
-
-#system.time({
-  #l <- list()
-  #for (i in 1:n) l[[i]] <- n-i+1
-#})
-
-
-#system.time({
-  #dl <- deque()
-  #for (i in 1:n) push(dl, i)
-  #l2 <- as.list(dl)
-#})
-
-#all.equal(l, l2)
-
-
-#rm(l, dl, l2)
-#invisible(gc())
-
-
+reps <- 25
+n <- 5e3
 
 cat("-------- pushback --------\n")
 
-system.time({
+f <- function(n)
+{
   l <- list()
   for (i in 1:n) l[[i]] <- i
-})
+  
+  l
+}
 
 
-system.time({
-  dl <- deque()
-  for (i in 1:n) pushback(dl, i)
-  l2 <- as.list(dl)
-})
+g <- function(n)
+{
+  q <- queue()
+  for (i in 1:n) pushback(q, i)
+  l <- as.list(q)
+  
+  l
+}
 
-all.equal(l, l2)
+benchmark(l1 <- f(n), l2 <- g(n), replications=reps, columns=cols)
+all.equal(l1, l2)
 
-rev(dl)
+invisible(gc())
