@@ -32,6 +32,8 @@
 #define PRINT_TRUNCLEN 5
 #define STR_TRUNCLEN   25
 
+
+
 SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel, SEXP printorder_)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
@@ -150,18 +152,26 @@ SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   list_t *l;
   
-  if (dl->len == 0)
+  const int len = dl->len;
+  const int printlen = MIN(len, INTEGER(n)[0]);
+  const int hot = INTEGER(headsortails)[0];
+  
+  if (len == 0)
   {
     Rprintf("deque()\n");
     return R_NilValue;
   }
   
   
-  int printlen = MIN(dl->len,INTEGER(n)[0]);
-  const int hot = INTEGER(headsortails)[0];
-  
-  l = hot == PEEKER_HEAD ? dl->start : dl->end;
-  
+  if (hot == PEEKER_HEAD)
+    l = dl->start;
+  else// if (hot == PEEKER_TAIL)
+  {
+    l = dl->end;
+    
+    for (int i=1; i<printlen; i++)
+      l = l->prev;
+  }
   
   for (int i=0; i<printlen; i++)
   {
@@ -169,7 +179,7 @@ SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
     PrintValue(l->data);
     Rprintf("\n");
     
-    l = hot == PEEKER_HEAD ? l->next : l->prev;
+    l = l->next;
   }
   
   return R_NilValue;
