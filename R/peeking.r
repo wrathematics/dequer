@@ -32,10 +32,12 @@ peekbacker <- function(x, n=1L) headtail(x, n=n, PEEKER_TAILS)
 #' @examples
 #' \dontrun{
 #' library(dequer)
-#' d <- deque()
-#' push(d, 1)
-#' push(d, 2)
-#' peek(d)
+#' s <- stack()
+#' for (i in 1:3) push(s, i)
+#' 
+#' peek(s)
+#' peekback(s)
+#' peek(s, length(s))
 #' }
 #' 
 #' @name peeking

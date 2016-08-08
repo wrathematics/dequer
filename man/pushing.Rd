@@ -40,13 +40,18 @@ Operates via side-effects; see examples for clarification on usage.
 \examples{
 \dontrun{
 library(dequer)
-d <- deque()
-pushback(d, 1)
-pushback(d, 2)
-print(d, output="full")
 
-push(d, 3)
-print(d, output="full")
+### A simple queue example
+q <- queue()
+for (i in 1:3) pushback(q, i)
+
+str(q)
+
+### A simple stack example
+s <- stack()
+for (i in 1:3) push(s, i)
+
+str(s)
 }
 
 }

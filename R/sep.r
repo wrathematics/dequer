@@ -23,15 +23,14 @@
 #' @examples
 #' \dontrun{
 #' library(dequer)
-#' d <- deque()
-#' for (i in 1:5) push(d, i)
+#' s <- stack()
+#' for (i in 1:5) push(s, i)
 #' 
-#' ### Split d into 2 deques
-#' d_last_2 <- sep(d, 3)
+#' ### Split s into 2 stacks holding: (s) the first 3, and (s_last_2) last 2 elements
+#' s_last_2 <- sep(s, 3)
 #' 
-#' ### d now holds the first 3 elements
-#' print(d, output="full")
-#' print(d_last_5, output="full")
+#' str(s)
+#' str(s_last_5)
 #' }
 #' 
 #' @export
