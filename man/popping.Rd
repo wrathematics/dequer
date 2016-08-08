@@ -23,7 +23,7 @@ popback(x)
 \method{popback}{deque}(x)
 }
 \arguments{
-\item{x}{A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.}
+\item{x}{A queue, stack, or deque.}
 }
 \value{
 Returns \code{NULL}; deletion operates via side-effects.

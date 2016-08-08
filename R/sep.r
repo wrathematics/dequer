@@ -1,7 +1,7 @@
 #' sep
 #' 
-#' Split one deque into two deques. Unlike most dequer functions, this one
-#' has a return!
+#' Spliot one object (queue/stack/deque) into two of the same type. NOTE: this
+#' function operates via side-effects AND has a return.
 #' 
 #' @details
 #' Operates via side-effects ALTHOUGH THERE IS A NON-NULL RETURN; see examples

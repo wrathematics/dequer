@@ -7,7 +7,7 @@
 #' Operates via side-effects; see examples for clarification on usage.
 #' 
 #' @param x
-#' A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.
+#' A queue, stack, or deque.
 #' 
 #' @return
 #' Returns \code{NULL}; deletion operates via side-effects.

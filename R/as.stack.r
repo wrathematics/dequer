@@ -26,12 +26,7 @@ as.stack <- function(x) UseMethod("as.stack")
 #' @rdname as.stack
 as.stack.list <- function(x)
 {
-  s <- stack()
-  
-  for (obj in x)
-    push(s, obj)
-  
-  return(s)
+  as.stack(as.deque(x))
 }
 
 
@@ -63,6 +58,6 @@ as.stack.deque <- function(x)
 as.stack.queue <- function(x)
 {
   class(x) <- "queue"
-  rev.deque(x)
+  rev(x)
   return(x)
 }

@@ -1,6 +1,6 @@
 #' combine
 #' 
-#' Combine two deques into one deque.
+#' Combine two objects (queue/stack/deque) into one of the same type.
 #' 
 #' @details
 #' Operates via side-effects; see examples for clarification on usage.

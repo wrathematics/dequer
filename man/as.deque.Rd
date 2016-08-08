@@ -24,7 +24,7 @@ as.deque(x)
 to be set as elements of a deque.}
 }
 \value{
-A deque object.
+A queue, stack, or deque.
 }
 \description{
 Convert to Deque

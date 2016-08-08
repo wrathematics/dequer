@@ -5,7 +5,7 @@
 \alias{dequer-package}
 \title{dequer}
 \description{
-Stacks, queues, and deques are list-like, abstract data types. 
+Queues, stacks, and deques are list-like, abstract data types. 
 These are meant to be very cheap to "grow", or insert new objects into.
 A typical use case involves storing data in a list in a streaming fashion,
 when you do not necessarily know how may elements need to be stored.

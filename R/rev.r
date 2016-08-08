@@ -4,7 +4,7 @@
 #' Operates via side-effects; see examples for clarification on usage.
 #' 
 #' @param x
-#' A deque.
+#' A queue, stack, or deque.
 #' 
 #' @return
 #' Returns \code{NULL}; insertion operates via side-effects.

@@ -13,16 +13,16 @@ peekbacker <- function(x, n=1L) headtail(x, n=n, PEEKER_TAILS)
 
 #' peek/peekback
 #' 
-#' View items from the front/back of a deque or a stack, for \code{peek()} or
-#' or \code{peekback()}, respectively. Similar to \code{head()} and \code{tail()}.
+#' View items from the front (\code{peek()}) or back (\code{peekback()}) of a
+#' queue, stack, or deque.
 #' 
 #' @description
 #' These methods are side-effect free. Note that unlike R's \code{head()} and
 #' \code{tail()}, the sub-objects are not actually created. They are merely
-#' printed.
+#' printed to the terminal.
 #' 
 #' @param x
-#' A deque or a stack.
+#' A queue, stack, or deque.
 #' @param n
 #' The number of items to view.
 #' 

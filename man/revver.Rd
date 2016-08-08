@@ -14,7 +14,7 @@
 \method{rev}{queue}(x)
 }
 \arguments{
-\item{x}{A deque.}
+\item{x}{A queue, stack, or deque.}
 }
 \value{
 Returns \code{NULL}; insertion operates via side-effects.

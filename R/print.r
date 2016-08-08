@@ -33,7 +33,7 @@ printer <- function(x, output="summary", printorder)
 #' If \code{output=="full"} then the full data structure will be printed.
 #' 
 #' @param x
-#' A deque.
+#' A queue, stack, or deque.
 #' @param output
 #' A character string; determines what exactly is printed.
 #' Options are "summary", "truncated", and "full".

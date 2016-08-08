@@ -6,7 +6,7 @@
 #' to be set as elements of a deque.
 #'
 #' @return
-#' A deque object.
+#' A queue, stack, or deque.
 #' 
 #' @examples
 #' \dontrun{
@@ -43,7 +43,7 @@ as.deque.list <- function(x)
 as.deque.default <- function(x)
 {
   d <- deque()
-  pushback(d, x)
+  push(d, x)
   
   return(d)
 }

@@ -14,7 +14,7 @@
 \method{print}{queue}(x, ..., output = "summary")
 }
 \arguments{
-\item{x}{A deque.}
+\item{x}{A queue, stack, or deque.}
 
 \item{...}{Unused.}
 

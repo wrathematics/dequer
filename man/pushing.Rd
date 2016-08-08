@@ -23,7 +23,7 @@ pushback(x, data)
 \method{pushback}{queue}(x, data)
 }
 \arguments{
-\item{x}{A deque or a stack for \code{push()}. A deque or queue for \code{push()}.}
+\item{x}{A queue, stack, or deque.}
 
 \item{data}{R object to insert at the front of the deque/stack.}
 }
@@ -31,8 +31,8 @@ pushback(x, data)
 Returns \code{NULL}; insertion operates via side-effects.
 }
 \description{
-Add items to the front of a deque/stack for \code{pop()}; or, 
-add items to the back of a deque/stack for \code{popback()}.
+Add items to the front of a stack or deque via \code{pop()}.  
+Add items to the back of a queue or deque via \code{popback()}.
 }
 \details{
 Operates via side-effects; see examples for clarification on usage.
