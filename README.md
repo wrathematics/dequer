@@ -1,18 +1,16 @@
 # dequer 
 
-* **Version:** 1.1-0
+* **Version:** 2.0-0
 * **Status:** [![Build Status](https://travis-ci.org/wrathematics/dequer.png)](https://travis-ci.org/wrathematics/dequer) 
 * **License:** [![License](http://img.shields.io/badge/license-BSD%202--Clause-orange.svg?style=flat)](http://opensource.org/licenses/BSD-2-Clause)
 * **Author:** Drew Schmidt
 
 
-This package offers three new data structures for R: the stack, queue, and dequue (double ended queue).  These are somewhat similar to R's lists in that they are "linear" (vector-like) and can store arbitrary objects.  However, they are much cheaper to "grow" than R's lists, as the underlying data is not required to be contiguously stored.
+This package (pronounced like "decker") offers three new data structures for R: the queue, stack, and dequue (double ended queue).  These are somewhat similar to R's lists in that they are "linear" (vector-like) and can store arbitrary objects.  However, they are much cheaper to "grow" than R's lists, as the underlying data is not required to be contiguously stored.
 
-The canonical use case is when you need to store data, and you don't know how much of it you ultimately need to store (and thus can not pre-allocate a list).
+The canonical use case for these is when you need to store data, and you don't know how much of it you ultimately need to store (and thus can not pre-allocate a list).
 
 Note that unless truly necessary, we do not recommend using deques.  Stacks and queues are perfectly safe, but due to how memory is managed in R, deques can result in terrible performance depending on how they are used; this usually manifests itself when the object is deleted and the garbage collector runs.  See the issues section below for full details.
-
-The package is pronounced like "decker".
 
 
 
@@ -117,22 +115,22 @@ str(q)
 ## queue()
 ```
 
-On the other hand, a stack is a last in, first out, or LIFO structure.  It's like a really unfair line, or like how traffic works only for you personally.  So we can't `pop()` elements on a stack, but we can `popback()` them, or pop them off the back.
+On the other hand, a stack is a last in, first out, or LIFO structure.  It's like a really unfair line, or like how traffic works only for you personally. You still take items off the front with `pop()`, but you add new ones to the front as well via `push()`.
 
 ```r
 s <- stack()
-for (i in 1:3) pushback(s, i)
+for (i in 1:3) push(s, i)
 str(s)
 ## stack of 3
-##  $ : int 1
-##  $ : int 2
 ##  $ : int 3
+##  $ : int 2
+##  $ : int 1
 
-popback(s)
+pop(s)
 str(s)
 ## stack of 2
-##  $ : int 1
 ##  $ : int 2
+##  $ : int 1
 ```
 
 Once the queue or stack has served its purpose, you will probably want to operate on the data stored in them.  To do so, convert to a list with `as.list()`:
@@ -140,10 +138,10 @@ Once the queue or stack has served its purpose, you will probably want to operat
 ```r
 as.list(s)
 ## [[1]]
-## [1] 1
+## [1] 2
 ## 
 ## [[2]]
-## [1] 2
+## [1] 1
 
 ### since q is empty, this is equivalent to calling `list()`
 as.list(q)
@@ -235,10 +233,10 @@ The supported operations for each object are:
 | `length()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
 | `peek()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
 | `peekback()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
-| `pop()` | <font color="green">Yes</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
-| `popback()` | <font color="red">No</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
-| `push()` | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
-| `pushback()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `pop()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `popback()` | <font color="red">No</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
+| `push()` | <font color="red">No</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
+| `pushback()` | <font color="green">Yes</font> | <font color="red">No</font> | <font color="green">Yes</font> | 
 | `str()` | <font color="green">Yes</font> | <font color="green">Yes</font> | <font color="green">Yes</font> | 
 
 There are also several "advanced" operations, which could lead to performance loss during garbage collection (see the issues section for more details):
