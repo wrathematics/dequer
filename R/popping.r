@@ -1,7 +1,7 @@
 #' pop/popback
 #' 
-#' Remove items from the front of a deque/stack for \code{pop()}; or, 
-#' remove items from the back of a deque/stack for \code{popback()}.
+#' Remove items from the front of a stack, queue, or deque for \code{pop()}; or, 
+#' remove items from the back of a deque for \code{popback()}.
 #' 
 #' @details
 #' Operates via side-effects; see examples for clarification on usage.
@@ -45,6 +45,10 @@ pop.deque <- function(x) invisible(.Call(R_deque_pop, x))
 #' @export
 pop.queue <- function(x) invisible(.Call(R_deque_popback, x))
 
+#' @rdname popping
+#' @export
+pop.stack <- function(x) invisible(.Call(R_deque_pop, x))
+
 
 
 #' @rdname popping
@@ -54,7 +58,3 @@ popback <- function(x) UseMethod("popback")
 #' @rdname popping
 #' @export
 popback.deque <- function(x) invisible(.Call(R_deque_popback, x))
-
-#' @rdname popping
-#' @export
-popback.stack <- function(x) invisible(.Call(R_deque_pop, x))

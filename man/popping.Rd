@@ -4,9 +4,9 @@
 \alias{pop}
 \alias{pop.deque}
 \alias{pop.queue}
+\alias{pop.stack}
 \alias{popback}
 \alias{popback.deque}
-\alias{popback.stack}
 \alias{popping}
 \title{pop/popback}
 \usage{
@@ -16,11 +16,11 @@ pop(x)
 
 \method{pop}{queue}(x)
 
+\method{pop}{stack}(x)
+
 popback(x)
 
 \method{popback}{deque}(x)
-
-\method{popback}{stack}(x)
 }
 \arguments{
 \item{x}{A deque or a stack for \code{pop()}. A deque or queue for \code{popback()}.}
@@ -29,8 +29,8 @@ popback(x)
 Returns \code{NULL}; deletion operates via side-effects.
 }
 \description{
-Remove items from the front of a deque/stack for \code{pop()}; or, 
-remove items from the back of a deque/stack for \code{popback()}.
+Remove items from the front of a stack, queue, or deque for \code{pop()}; or, 
+remove items from the back of a deque for \code{popback()}.
 }
 \details{
 Operates via side-effects; see examples for clarification on usage.

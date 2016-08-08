@@ -58,7 +58,7 @@ peek.queue <- peekbacker
 
 #' @rdname peeking
 #' @export
-peek.stack <- peekbacker
+peek.stack <- peeker
 
 
 
@@ -76,4 +76,4 @@ peekback.queue <- peeker
 
 #' @rdname peeking
 #' @export
-peekback.stack <- peeker
+peekback.stack <- peekbacker

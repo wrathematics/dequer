@@ -58,7 +58,7 @@ print.deque <- function(x, ..., output="summary")
 #' @export
 print.stack <- function(x, ..., output="summary")
 {
-  printer(x=x, output=output, printorder=PRINTORDER_REVERSE)
+  printer(x=x, output=output, printorder=PRINTORDER_FORWARD)
 }
 
 #' @rdname printer

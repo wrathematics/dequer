@@ -3,10 +3,10 @@
 \name{pushing}
 \alias{push}
 \alias{push.deque}
+\alias{push.stack}
 \alias{pushback}
 \alias{pushback.deque}
 \alias{pushback.queue}
-\alias{pushback.stack}
 \alias{pushing}
 \title{push/pushback}
 \usage{
@@ -14,11 +14,11 @@ push(x, data)
 
 \method{push}{deque}(x, data)
 
+\method{push}{stack}(x, data)
+
 pushback(x, data)
 
 \method{pushback}{deque}(x, data)
-
-\method{pushback}{stack}(x, data)
 
 \method{pushback}{queue}(x, data)
 }
