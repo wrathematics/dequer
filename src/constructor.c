@@ -56,6 +56,7 @@ SEXP R_deque_create()
 SEXP R_deque_push(SEXP deque_ptr, SEXP data)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   SEXP cpdata = duplicate(data);
   R_PreserveObject(cpdata);
@@ -69,6 +70,7 @@ SEXP R_deque_push(SEXP deque_ptr, SEXP data)
 SEXP R_deque_pushback(SEXP deque_ptr, SEXP data)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   SEXP cpdata = duplicate(data);
   R_PreserveObject(cpdata);
@@ -82,6 +84,7 @@ SEXP R_deque_pushback(SEXP deque_ptr, SEXP data)
 SEXP R_deque_pop(SEXP deque_ptr)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   deque_pop(dl);
   
@@ -93,6 +96,7 @@ SEXP R_deque_pop(SEXP deque_ptr)
 SEXP R_deque_popback(SEXP deque_ptr)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   deque_popback(dl);
   
@@ -105,6 +109,7 @@ SEXP R_deque_split(SEXP deque_ptr, SEXP k)
 {
   SEXP ret;
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   deque_t *dl2;
   
   int check = deque_split(INTEGER(k)[0], dl, &dl2);
@@ -122,7 +127,9 @@ SEXP R_deque_split(SEXP deque_ptr, SEXP k)
 SEXP R_deque_combine(SEXP deque_ptr1, SEXP deque_ptr2)
 {
   deque_t *dl1 = (deque_t *) getRptr(deque_ptr1);
+  CHECKPTR(dl1);
   deque_t *dl2 = (deque_t *) getRptr(deque_ptr2);
+  CHECKPTR(dl2);
   
   deque_combine(dl1, dl2);
   

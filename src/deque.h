@@ -60,6 +60,8 @@ typedef struct list_t{
 
 
 // External pointer shorthand
+#define CHECKPTR(ptr) if(ptr==NULL)error("queue/stack/deque is invalid: pointer is NULL")
+
 #define newRptr(ptr,Rptr,fin) PROTECT(Rptr = R_MakeExternalPtr(ptr, R_NilValue, R_NilValue));R_RegisterCFinalizerEx(Rptr, fin, TRUE)
 #define getRptr(ptr) R_ExternalPtrAddr(ptr);
 

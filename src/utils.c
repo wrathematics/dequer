@@ -37,6 +37,7 @@
 SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel, SEXP printorder_)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   list_t *l;
   const int printorder = INTEGER(printorder_)[0];
   
@@ -84,6 +85,7 @@ SEXP R_deque_print(SEXP deque_ptr, SEXP printlevel, SEXP printorder_)
 SEXP R_deque_length(SEXP deque_ptr)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   SEXP len;
   PROTECT(len = allocVector(INTSXP, 1));
@@ -99,6 +101,7 @@ SEXP R_deque_length(SEXP deque_ptr)
 SEXP R_deque_reverse(SEXP deque_ptr)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   
   deque_reverse(dl);
   
@@ -110,6 +113,7 @@ SEXP R_deque_reverse(SEXP deque_ptr)
 SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   list_t *l;
   const int len = dl->len;
   const int printlen = MIN(len, STR_TRUNCLEN);
@@ -150,6 +154,7 @@ SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
 SEXP R_deque_headsortails(SEXP deque_ptr, SEXP n, SEXP headsortails)
 {
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
+  CHECKPTR(dl);
   list_t *l;
   
   const int len = dl->len;
