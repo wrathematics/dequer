@@ -1,5 +1,3 @@
-PKG_CFLAGS = -g
-
 OBJECTS = constructor.o converters.o deque.o utils.o
 
 all: $(SHLIB)
