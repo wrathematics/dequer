@@ -1,8 +1,0 @@
-OBJECTS = constructor.o converters.o deque.o utils.o
-
-all: $(SHLIB)
-$(SHLIB): $(OBJECTS) 
-
-
-clean:
-	rm -rf *.o *.so *.dll 
