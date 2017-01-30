@@ -73,8 +73,8 @@ typedef struct list_t{
 deque_t *deque_create();
 void deque_push(deque_t *dl, SEXP data);
 void deque_pushback(deque_t *dl, SEXP data);
-void deque_pop(deque_t *dl);
-void deque_popback(deque_t *dl);
+SEXP deque_pop(deque_t *dl);
+SEXP deque_popback(deque_t *dl);
 void deque_reverse(deque_t *dl);
 int deque_split(const uint32_t k, deque_t *dl, deque_t **dl2);
 int deque_combine(deque_t *dl, deque_t *dl2);

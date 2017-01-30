@@ -86,9 +86,7 @@ SEXP R_deque_pop(SEXP deque_ptr)
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   CHECKPTR(dl);
   
-  deque_pop(dl);
-  
-  return R_NilValue;
+  return deque_pop(dl);
 }
 
 
@@ -98,9 +96,7 @@ SEXP R_deque_popback(SEXP deque_ptr)
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   CHECKPTR(dl);
   
-  deque_popback(dl);
-  
-  return R_NilValue;
+  return deque_popback(dl);
 }
 
 

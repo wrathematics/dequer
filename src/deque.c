@@ -84,11 +84,12 @@ void deque_pushback(deque_t *dl, SEXP data)
 
 
 
-void deque_pop(deque_t *dl)
+SEXP deque_pop(deque_t *dl)
 {
   list_t *tmp;
   
-  if (dl->len == 0) return;
+  if (dl->len == 0)
+    return R_NilValue;
   
   list_t *l = dl->start;
   if (l->next)
@@ -101,20 +102,24 @@ void deque_pop(deque_t *dl)
   }
   
   dl->start = l->next;
-  if (dl->len == 1) dl->end = NULL;
+  if (dl->len == 1)
+    dl->end = NULL;
   dl->len--;
   
-  R_ReleaseObject(l->data);
+  SEXP ret = l->data;
+  R_ReleaseObject(ret);
   free(l);
+  return ret;
 }
 
 
 
-void deque_popback(deque_t *dl)
+SEXP deque_popback(deque_t *dl)
 {
   list_t *tmp;
   
-  if (dl->len == 0) return;
+  if (dl->len == 0)
+    return R_NilValue;
   
   list_t *l = dl->end;
   
@@ -128,11 +133,14 @@ void deque_popback(deque_t *dl)
   }
   
   dl->end = l->prev;
-  if (dl->len == 1) dl->start = NULL;
+  if (dl->len == 1)
+    dl->start = NULL;
   dl->len--;
   
-  R_ReleaseObject(l->data);
+  SEXP ret = l->data;
+  R_ReleaseObject(ret);
   free(l);
+  return ret;
 }
 
 
