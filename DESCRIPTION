@@ -1,7 +1,7 @@
 Package: dequer
 Type: Package
 Title: Stacks, Queues, and 'Deques' for R
-Version: 2.0-0
+Version: 2.0-1
 Description: Queues, stacks, and 'deques' are list-like, abstract data types. 
     These are meant to be very cheap to "grow", or insert new objects into.
     A typical use case involves storing data in a list in a streaming fashion,
