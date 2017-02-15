@@ -1,5 +1,6 @@
 Release 2.0-1:
   * Fixed incorrect pop/popback behavior.
+  * Register native routines.
 
 Release 2.0-0:
   * Added queues and stacks.
