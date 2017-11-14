@@ -1,6 +1,7 @@
-redocument
 ^\.travis\.yml$
 
 TODO
 
-tests/val
+tests/dontrun
+
+LICENSE.md
