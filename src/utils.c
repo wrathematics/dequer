@@ -110,8 +110,22 @@ SEXP R_deque_reverse(SEXP deque_ptr)
 
 
 
+static inline SEXP evalfun_stringarg(const char *const restrict fun, const char *const restrict arg)
+{
+  SEXP ret, expr, fun_install, arg_str;
+  PROTECT(fun_install = install(fun));
+  PROTECT(arg_str = ScalarString(mkChar(arg)));
+  PROTECT(expr = lang2(fun_install, arg_str));
+  PROTECT(ret = eval(expr, R_GlobalEnv));
+  
+  UNPROTECT(4);
+  return ret;
+}
+
 SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
 {
+  SEXP basePackage;
+  SEXP strfun;
   deque_t *dl = (deque_t *) getRptr(deque_ptr);
   CHECKPTR(dl);
   list_t *l;
@@ -125,8 +139,8 @@ SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
     return R_NilValue;
   }
   
-  SEXP basePackage;
-  PROTECT( basePackage = eval( lang2( install("getNamespace"), ScalarString(mkChar("utils")) ), R_GlobalEnv ) );
+  PROTECT(basePackage = evalfun_stringarg("getNamespace", "utils"));
+  PROTECT(strfun = install("str"));
   
   Rprintf("%s of %d\n", CHARPT(obj_type, 0), len);
   
@@ -138,14 +152,19 @@ SEXP R_deque_str(SEXP deque_ptr, SEXP obj_type, SEXP printorder_)
   for (int i=0; i<printlen; i++)
   {
     Rprintf(" $ :");
-    eval( lang2( install("str"), l->data), basePackage);
+    
+    SEXP expr;
+    PROTECT(expr = lang2(strfun, l->data));
+    eval(expr, basePackage);
+    UNPROTECT(1);
+    
     l = (printorder == PRINTORDER_FORWARD ? l->next : l->prev);
   }
   
   if (len > printlen)
     Rprintf("  [output truncated to %d of %d elements]\n", printlen, len);
   
-  UNPROTECT(1);
+  UNPROTECT(2);
   return R_NilValue;
 }
 
