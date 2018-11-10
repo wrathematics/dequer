@@ -21,7 +21,7 @@ Note that unless truly necessary, we do not recommend using deques.  Stacks and 
 To install the R package, run:
 
 ```r
-install.package("dequer")
+install.packages("dequer")
 ```
 
 The development version is maintained on GitHub, and can easily be installed by any of the packages that offer installations from GitHub:
