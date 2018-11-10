@@ -42,6 +42,8 @@ remotes::install_github("wrathematics/dequer")
 If you need to create a list and do not know how many elements the final object should have, it is better to use a queue or a stack (or if you're careful, a deque) to store the data before casting to a native R list object, with rough pseudocode:
 
 ```r
+library("dequer")
+
 ### Initialize
 q <- queue()
 
