@@ -21,7 +21,7 @@ Note that unless truly necessary, we do not recommend using deques.  Stacks and 
 To install the R package, run:
 
 ```r
-install.package("dequer")
+install.packages("dequer")
 ```
 
 The development version is maintained on GitHub, and can easily be installed by any of the packages that offer installations from GitHub:
@@ -42,6 +42,8 @@ remotes::install_github("wrathematics/dequer")
 If you need to create a list and do not know how many elements the final object should have, it is better to use a queue or a stack (or if you're careful, a deque) to store the data before casting to a native R list object, with rough pseudocode:
 
 ```r
+library("dequer")
+
 ### Initialize
 q <- queue()
 
