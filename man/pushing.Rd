@@ -31,8 +31,8 @@ pushback(x, data)
 Returns \code{NULL}; insertion operates via side-effects.
 }
 \description{
-Add items to the front of a stack or deque via \code{pop()}.  
-Add items to the back of a queue or deque via \code{popback()}.
+Add items to the front of a stack or deque via \code{push()}.  
+Add items to the back of a queue or deque via \code{pushback()}.
 }
 \details{
 Operates via side-effects; see examples for clarification on usage.
