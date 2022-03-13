@@ -1,3 +1,4 @@
+#' @useDynLib dequer R_deque_headsortails
 headtail <- function(x, n, headsortails)
 {
   n <- as.integer(n)

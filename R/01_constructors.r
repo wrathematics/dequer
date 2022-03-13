@@ -1,3 +1,8 @@
+#' @useDynLib dequer R_deque_create
+NULL
+
+
+
 #' queue
 #' 
 #' A constructor for a queue.

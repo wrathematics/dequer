@@ -27,6 +27,7 @@
 #' @method rev queue
 NULL
 
+#' @useDynLib dequer R_deque_reverse
 revver <- function(x)
 {
   .Call(R_deque_reverse, x)

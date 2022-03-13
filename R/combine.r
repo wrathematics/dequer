@@ -25,6 +25,7 @@
 #' s2 # holds 0 elements
 #' }
 #' 
+#' @useDynLib dequer R_deque_combine
 #' @export
 combine <- function(x1, x2)
 {

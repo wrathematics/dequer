@@ -1,3 +1,4 @@
+#' @useDynLib dequer R_deque_str
 #' @export
 str.deque <- function(object, ...)
 {

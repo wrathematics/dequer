@@ -16,8 +16,4 @@ is new and uses a head/tail doubly linked list; thus, we do not rely on R's
 environments or hashing.  To avoid unnecessary data copying, most operations
 on these data structures are performed via side-effects.
 }
-\author{
-Drew Schmidt \email{wrathematics AT gmail.com}
-}
 \keyword{Package}
-

@@ -2,8 +2,8 @@
 % Please edit documentation in R/as.deque.r
 \name{as.deque}
 \alias{as.deque}
-\alias{as.deque.default}
 \alias{as.deque.list}
+\alias{as.deque.default}
 \alias{as.deque.queue}
 \alias{as.deque.stack}
 \title{Convert to Deque}
@@ -37,4 +37,3 @@ d
 }
 
 }
-

@@ -36,6 +36,12 @@ NULL
 
 
 
+#' @useDynLib dequer R_deque_pop
+#' @useDynLib dequer R_deque_popback
+NULL
+
+
+
 #' @rdname popping
 #' @export
 pop <- function(x) UseMethod("pop")

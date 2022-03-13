@@ -1,3 +1,4 @@
+#' @useDynLib dequer R_deque_length
 #' @export
 length.deque <- function(x)
 {

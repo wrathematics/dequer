@@ -1,3 +1,4 @@
+#' @useDynLib dequer R_deque_print
 printer <- function(x, output="summary", printorder)
 {
   output <- match.arg(tolower(output), c("summary", "truncated", "full"))

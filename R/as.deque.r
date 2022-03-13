@@ -15,9 +15,9 @@
 #' d
 #' }
 #' 
-#' @export
 #' @name as.deque
 #' @rdname as.deque
+#' @export
 as.deque <- function(x) UseMethod("as.deque")
 
 

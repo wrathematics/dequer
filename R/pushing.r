@@ -37,6 +37,12 @@ NULL
 
 
 
+#' @useDynLib dequer R_deque_push
+#' @useDynLib dequer R_deque_pushback
+NULL
+
+
+
 #' @rdname pushing
 #' @export
 push <- function(x, data) UseMethod("push")

@@ -1,3 +1,4 @@
+#' @useDynLib dequer R_deque_to_Rlist
 #' @export
 as.list.deque <- function(x, ...)
 {

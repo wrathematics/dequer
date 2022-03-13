@@ -1,3 +1,7 @@
+Release 2.0-2:
+  * Minor internal re-organization.
+  * Minor documentation fix for CRAN.
+
 Release 2.0-1:
   * Fixed incorrect pop/popback behavior.
   * Register native routines.

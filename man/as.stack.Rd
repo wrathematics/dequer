@@ -2,9 +2,9 @@
 % Please edit documentation in R/as.stack.r
 \name{as.stack}
 \alias{as.stack}
+\alias{as.stack.list}
 \alias{as.stack.default}
 \alias{as.stack.deque}
-\alias{as.stack.list}
 \alias{as.stack.queue}
 \title{Convert to Stack}
 \usage{
@@ -37,4 +37,3 @@ s
 }
 
 }
-

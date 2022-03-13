@@ -33,6 +33,7 @@
 #' str(s_last_5)
 #' }
 #' 
+#' @useDynLib dequer R_deque_split
 #' @export
 sep <- function(x, k)
 {

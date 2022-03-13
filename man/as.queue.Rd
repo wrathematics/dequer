@@ -2,9 +2,9 @@
 % Please edit documentation in R/as.queue.r
 \name{as.queue}
 \alias{as.queue}
+\alias{as.queue.list}
 \alias{as.queue.default}
 \alias{as.queue.deque}
-\alias{as.queue.list}
 \alias{as.queue.stack}
 \title{Convert to Queue}
 \usage{
@@ -37,4 +37,3 @@ q
 }
 
 }
-
